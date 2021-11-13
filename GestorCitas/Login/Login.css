@@ -13,8 +13,25 @@ main {
 }
 
 form {
+    display: flex;
+    flex-direction: column;
     border:solid;
     border-radius: 7px;
+}
+
+#contenedor-boton {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cedula {
+ 
+}
+
+#ingresar {
+    flex-wrap:wrap;
 }
 
 fieldset {
