@@ -1,0 +1,23 @@
+body {
+    background-color: var(--fondo-general);
+}
+
+h1 {
+    font-size: 1em;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    border:solid;
+    border-radius: 7px;
+}
+
+fieldset {
+    border: none;
+    display: inline;
+}
