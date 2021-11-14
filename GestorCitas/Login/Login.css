@@ -1,10 +1,35 @@
+
 body {
-    background-color: var(--fondo-general);
+    background-color: var(--fondo-casi-blanco);
+}
+
+
+@media (max-height: 750px) {
+    header {
+        margin-top: 6.5%;
+    }
 }
 
 h1 {
-    font-size: 1em;
+    font-size: 2em;
     text-align: center;
+}
+
+fieldset label {
+    margin-right: 20px;
+    width: 20%;
+    display: inline-flex;
+}
+
+
+fieldset input {
+    border-radius: 7px;
+}
+
+
+label, input, h2 {
+    font-size: 1.5em;
+    margin-right: 20px;
 }
 
 main {
@@ -13,10 +38,14 @@ main {
 }
 
 form {
+    background-color: var(--fondo-general);
     display: flex;
     flex-direction: column;
     border:solid;
     border-radius: 7px;
+    padding: 17px;
+    border:0px;
+    box-shadow: 1.5px 1.5px 3px grey;
 }
 
 #contenedor-boton {
@@ -26,15 +55,38 @@ form {
     justify-content: center;
 }
 
-#cedula {
- 
+#titulo-formulario {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#area-contrasena {
+    margin-top: 10px;
 }
 
 #ingresar {
+    font-size: 1.5em;
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     flex-wrap:wrap;
 }
 
 fieldset {
     border: none;
     display: inline;
+}
+
+#mensaje-error {
+    padding-left: 17px;
+    display: block;
+}
+
+.error {
+    visibility: hidden;
+}
+
+.requerido { 
+    display: inline-flex;
+    color: red;
 }

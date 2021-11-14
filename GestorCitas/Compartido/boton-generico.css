@@ -22,5 +22,5 @@ a, button {
 	cursor: pointer;
 	color: white;
 	box-shadow: 1.23px 1.25px 2.5px grey;
-	border-color: black;
+	border:none;
 }
