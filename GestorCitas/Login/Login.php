@@ -14,7 +14,7 @@
             <h1 id="titulo">Gestor de citas Softville</h1>	  
 		</header>
 		<main>
-			<form id="formulario-login" name="formulario-login" method="post" action="">
+			<form id="formulario-login" name="formulario-login" method="post" action="login-function.php">
 				<h2 id="titulo-formulario">Iniciar Sesión</h2>
                 <fieldset id="area-cedula">
                     <label>Cédula</label>
@@ -27,7 +27,7 @@
                 </fieldset>
 
 				<label id="mensaje-error" class="error">
-					<p class="requerido error"> * </p>
+					<p class="requerido"> Los datos ingresados son incorrectos </p>
 				</label>
 
 				<div id="contenedor-boton">
@@ -41,18 +41,21 @@
 </html>
 
 <?php
-	if(isset($_POST['cedula']) && isset($_POST['contrasena'])){
-		include 'usuario-class.php';
-		$usuario = new Usuario();
-		$cedula = $_POST["cedula"];
-		/*Aqui hay que trabajar con la clave para evitar insercion de codigo */
-    $clave = $_POST["contrasena"];
-		$_POST["cedula"]= array();
-		$_POST["contrasena"]= array();
-		if($usuario->permisoIngresar($cedula,$clave)){
-			echo '<script language="javascript">alert("Login exitoso, hay que cambiar esta retroalimentación");</script>';
-		}else{
-			echo '<script language="javascript">alert("Logeo incorrecto");</script>';
-		}
-	} 	
+  session_start();
+	if(isset( $_SESSION["logeo"])){
+    if($_SESSION["logeo"]== 1){
+      $_SESSION["logeo"] = 0;
+      echo '<script language="javascript">
+      document.getElementById("mensaje-error").innerHTML="logeo exitoso, aqui debe redirigir a home";
+      document.getElementById("mensaje-error").style.visibility="visible"
+      </script>';
+    }
+    if($_SESSION["logeo"]== 2){
+      $_SESSION["logeo"] = 0;
+      echo '<script language="javascript">
+      document.getElementById("mensaje-error").style.visibility="visible";</script>';
+    }
+	}else{
+		$_SESSION["logeo"] = 0;
+	}
 ?>
