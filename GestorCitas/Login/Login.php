@@ -55,6 +55,13 @@
       echo '<script language="javascript">
       document.getElementById("mensaje-error").style.visibility="visible";</script>';
     }
+    if($_SESSION["logeo"]== 3){
+      $_SESSION["logeo"] = 0;
+      echo '<script language="javascript">
+      document.getElementById("mensaje-error").innerHTML="Ha sobrepasado el limite de intentos, su cuenta está bloqueada";
+      document.getElementById("mensaje-error").style.visibility="visible"
+      </script>';
+    }
 	}else{
 		$_SESSION["logeo"] = 0;
 	}
