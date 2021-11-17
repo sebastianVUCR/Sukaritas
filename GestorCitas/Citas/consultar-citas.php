@@ -20,6 +20,8 @@
                     <label>Cédula</label>
 				    <input type="number" id="cedula" name="cedula" placeholder="116540419"/>
 					<button type="submit" id="buscar">Buscar</button>
+					<a id="agregar-citas" href="#">Agregar citas</a>
+
                 </fieldset>   	
             </form>
 			<div id="contenedor-tabla">
