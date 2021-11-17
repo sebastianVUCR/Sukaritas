@@ -1,15 +1,21 @@
+<!-- 
+  Nota importante
+  cuando se incluye este archivo adentro de otro se usa la ruta del archivo principal para obtener las hojas 
+  de estilo y otros documentos.
+ -->
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="colores.css"/>
-<link rel="stylesheet" href="navbar.css"/>
+<link rel="stylesheet" href="../Compartido/colores.css"/>
+<link rel="stylesheet" href="../Compartido/navbar.css"/>
 
 <nav class="navbar navbar-expand-lg" id="navbar-citas">
   <button id="boton-menu" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-    <img id="icono-menu" src="icono-menu.jpg" alt="icono menu">
+    <img id="icono-menu" src="../Compartido/icono-menu.jpg" alt="icono menu">
   </button>
   
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -18,7 +24,7 @@
         <a id="link-inicio" class="a-citas nav-link" href="#">Softville</span></a>
       </li>
       <li class="nav-item active">
-        <a class="a-citas nav-link" href="#">Citas</span></a>
+        <a class="a-citas nav-link" href="../Citas/consultar-citas.php">Citas</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Reportes</a>

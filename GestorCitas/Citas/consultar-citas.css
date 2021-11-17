@@ -1,0 +1,14 @@
+main, header {
+    margin: 25px;
+}
+
+nav, h1 {
+    margin-bottom: 30px;
+}
+
+#contenedor-tabla {
+    width: 88%;
+    height: 65%;
+    position: absolute;
+    border:solid;
+}

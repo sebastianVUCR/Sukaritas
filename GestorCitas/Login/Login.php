@@ -36,7 +36,6 @@
                 <button type="submit" id="submit-escondido" class="hidden-submit" hidden>validar entradas</button>
             </form>
 		</main>
-
 	</body>
 </html>
 
