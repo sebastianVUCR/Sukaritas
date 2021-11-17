@@ -2,15 +2,25 @@
 include_once 'connect.php';
 class Usuario {
     public $conn;
+
+    /*
+    Constructor de la clase que inicia la conexion
+     */
     function __construct(){
       $conector = new Connect();
       $this->conn = $conector->connectar();
     }
 
+    /*
+    Destructor de la clase que inicia la conexión
+     */
     function __destruct(){
       $this->conn -> close();
     }
 
+    /*
+    Esta función se utiliza para que los desarrollador creen usuarios
+    */
     function crearUsuario($cedula,$rol,$intentos,$estado,$clave) {
       if(!$this->existeUsuario($cedula)) {
         $password = password_hash($clave, PASSWORD_DEFAULT);
@@ -21,13 +31,16 @@ class Usuario {
         if (mysqli_query($this->conn, $sql)) {
             echo "New record created successfully";
         } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            echo "Error: " . $sql . "<br>" . mysqli_error($this->conn);
         }
       }else{
         echo "Error: usuario ya existe";
       }
     }
 
+    /*
+    Verifica si ya exite un usuario con la cédula ingresada.
+     */
     function existeUsuario($cedula){
       $sql = "SELECT cedula FROM Usuario WHERE cedula = '{$cedula}';";
       $resultado = mysqli_query($this->conn, $sql);
@@ -44,6 +57,9 @@ class Usuario {
       return false;
     }
 
+    /*
+    Consulta a la base de datos si los credenciales si el usuario ingresó correctamente las credenciales
+    */
     function revisarCredenciales($cedula,$clave){
       if($this->existeUsuario($cedula)){
         $sql = "SELECT clave FROM Usuario WHERE cedula = '{$cedula}';";
@@ -55,6 +71,7 @@ class Usuario {
         while ($fila = mysqli_fetch_row($resultado)) {
           $data = $fila[0];
         }
+
         if(password_verify($clave, $data)){
           return true;
         }
@@ -62,6 +79,10 @@ class Usuario {
       return false;
     }
 
+    /*
+    Bloquea un usuario para que no pueda ingresar al sistema, esta función se llama cuando
+    el usuario falló la contraseña 5 veces e intenta ingresar una sexta vez.
+     */
     function bloquearUsuario($cedula){
       if($this->existeUsuario($cedula)){
         $id = $this->obtenerId($cedula);
@@ -79,6 +100,11 @@ class Usuario {
       return false;
     }
 
+    /*
+    Esta función se utiliza por los desarrolladores para desbloquear un usuario de la base de datos
+    To do: si se quiere utilizar esta función en producción es necesario realizar todas las consultas en 
+    un procedimiento almacenada para asegurar la atomicidad
+     */
     function desbloquearUsuario($cedula){
       if($this->existeUsuario($cedula)){
         $id = $this->obtenerId($cedula);
@@ -103,6 +129,9 @@ class Usuario {
       return false;
     }
 
+    /*
+    Consulta si el usuario tiene permiso para ingresar al sistema.
+     */
     function permisoIngresar($cedula,$clave){
       if($this->existeUsuario($cedula)){
         if($this->revisarCredenciales($cedula,$clave)){
@@ -132,6 +161,9 @@ class Usuario {
       return false;
     }
 
+    /*
+    función de desarrollador para eliminar un cédula
+     */
     function eliminarUsuario($cedula){
       if($this->existeUsuario($cedula)){
         $id = $this->obtenerId($cedula);
@@ -146,7 +178,10 @@ class Usuario {
       return false;
     }
 
-    function obtenerIntentos($cedula){
+    /*
+    Devuelve la cantidad de intentos que tiene un usuario
+    */
+    function obtenerIntentos($cedula) {
       if($this->existeUsuario($cedula)){
         $sql = "SELECT intentos FROM Usuario WHERE cedula = '{$cedula}';";
         $resultado = mysqli_query($this->conn, $sql);
@@ -161,6 +196,11 @@ class Usuario {
       }
     }
 
+
+    /*
+    Reduce la cantidad de intento que tiene un usuario para ingresar su contraseña, esta función
+    se llama después de que el usuario de equivoca.
+    */
     function reducirIntento($cedula){
       if($this->existeUsuario($cedula)){
         $intentos = $this->obtenerIntentos($cedula) - 1;
@@ -180,6 +220,9 @@ class Usuario {
       }
     }
 
+    /*
+    Devuelve el id del usuario con una cédula
+    */
     function obtenerId($cedula){
       if($this->existeUsuario($cedula)){
         $sql = "SELECT id FROM Usuario WHERE cedula = '{$cedula}';";
@@ -195,6 +238,10 @@ class Usuario {
       }
     }
 
+    /*
+    Reinicia la cantidad de intento (los vuelve a poner en 5), 
+    esta función se llama cuando el usuario ingresa a su usuario.
+    */
     function resetIntentos($cedula){
       if($this->existeUsuario($cedula)){
         $id = $this->obtenerId($cedula);

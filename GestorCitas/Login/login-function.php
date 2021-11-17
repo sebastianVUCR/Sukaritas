@@ -2,9 +2,10 @@
   include 'usuario-class.php';
   session_start();
   $usuario = new Usuario();
-  $cedula = $_POST["cedula"];
-  /*Aqui hay que trabajar con la clave para evitar insercion de codigo */
-  $clave = $_POST["contrasena"];
+  /*Revisa que no se inyecte código*/
+  $cedula = filter_var($_POST["cedula"], FILTER_SANITIZE_NUMBER_INT);
+  $clave = filter_var($_POST["contrasena"], FILTER_SANITIZE_STRING);
+  echo $cedula."  ".$clave;
   $_POST["cedula"]= array();
   $_POST["contrasena"]= array();
   if($usuario->permisoIngresar($cedula,$clave)){
