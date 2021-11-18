@@ -25,7 +25,7 @@ $conn = $connect->connectar();
             <h1 id="titulo">Registrar citas</h1>	  
 		</header>
 		<main>
-			<form id="formulario-cita" name="formulario-cita" method="post" action="nuevaCita-function.php">
+			<form id="formulario-cita" name="formulario-cita" method="post" action="cita-function.php">
             
                 <fieldset class="input-registrar-cita">
                     <label>Cédula</label>
@@ -34,7 +34,7 @@ $conn = $connect->connectar();
                 
                 <fieldset class="input-registrar-cita">
                     <label>Profesional encargado</label>
-                    <select required>
+                    <select required id="idProfesional" name="idProfesional">
                         <option value = 0>Seleccione uno</option>
                     <?php 
                     $sqli ="Select * from profesional";
@@ -53,7 +53,7 @@ $conn = $connect->connectar();
 
                 <fieldset class="input-registrar-cita">
                     <label>Hora de la cita </label>
-                    <input type="time" id="appt" name="hora_cita" min="08:00" max="18:00" required>
+                    <input type="time" id="hora_cita" name="hora_cita" min="08:00" max="18:00" required>
                 </fieldset>
 
                 <div id="button-box">
