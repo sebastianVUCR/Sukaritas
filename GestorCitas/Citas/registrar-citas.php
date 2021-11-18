@@ -12,20 +12,16 @@
 	</head>
 	<body>
 		<header>
-            <h1 id="titulo">Consultar citas</h1>	  
+            <h1 id="titulo">Registrar citas</h1>	  
 		</header>
 		<main>
 			<form id="formulario-login" name="formulario-login" method="post" action="login-function.php">
                 <fieldset id="area-cedula">
-                    <label>Cédula</label>
-				    <input type="number" id="cedula" name="cedula" placeholder="116540419"/>
-					<button type="submit" id="buscar">Buscar</button>
-					<a id="agregar-citas" href="registrar-citas.php">Agregar citas</a>
+                    
 
                 </fieldset>   	
             </form>
-			<div id="contenedor-tabla">
-			</div>
+			
 		</main>
 	</body>
 </html>
