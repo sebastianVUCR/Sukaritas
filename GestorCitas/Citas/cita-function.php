@@ -1,5 +1,6 @@
 <?php
 include 'cita-class.php';
+
 session_start();
 
 $hora = $_POST["hora_cita"];

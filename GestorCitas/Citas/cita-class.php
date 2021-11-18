@@ -1,5 +1,6 @@
 <?php
-include_once 'connect.php';
+require_once (dirname(__FILE__)).'/../login/connect.php';
+
 class Cita {
     public $conn;
 
