@@ -51,17 +51,21 @@ class Cita {
   }
 
 
-    function eliminarCita($fecha) {
-        $sql = "SELECT fecha FROM Cita WHERE fecha = '{$fecha}';";
+    function verificarFechaCita($fecha) {
+        $sql = "SELECT fecha FROM citas WHERE fecha = '{$fecha}';";
         $resultado = mysqli_query($this->conn, $sql);
         if (!$this->conn) {
           die("Connection failed: " . mysqli_connect_error());
         }
+        
         $data = 0;
         while ($fila = mysqli_fetch_row($resultado)) {
           $data = $fila[0];
         }
-        if($data === $fecha){
+        //echo ($fecha), "\n";
+        //echo ($data), "\n";
+        if($data === $fecha){//fecha duplicada
+            //echo ("Fechas iguales"), "\n";
           return false;
         }else{
             return true;
@@ -80,22 +84,18 @@ class Cita {
       return false;
     }
 
-    
-
-    function verificarFechaCita($fecha) {
-        $sql = "SELECT fecha FROM citas WHERE fecha = '{$fecha}';";
-        $resultado = mysqli_query($this->conn, $sql);
-        if (!$this->conn) {
-          die("Connection failed: " . mysqli_connect_error());
-        }
-        $data = 0;
-        while ($fila = mysqli_fetch_row($resultado)) {
-          $data = $fila[0];
-        }
-        if($data == $fecha){//fecha duplicada
-          return false;
+    function verificarFechaCitaFutura($fecha) {
+        
+        $data =date("Y/m/d h:i:s");
+        
+        echo ($fecha), "\n";
+        echo ($data), "\n";
+        if($data <= $fecha){//fecha duplicada
+            echo ("Hora posible"), "\n";
+          return true;
         }else{
-            return true;
+            echo ("Hora en el pasado"), "\n";
+            return false;
         }
     }
 
