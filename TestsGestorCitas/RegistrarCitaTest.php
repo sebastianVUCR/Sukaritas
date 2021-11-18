@@ -33,8 +33,18 @@ class RegistrarCitaTest extends  PHPUnit\Framework\TestCase
     {
         $this->assertFalse( $this->cita->pacienteExiste("1111111111"));
     }
-    
 
+    /** @test */
+    public function nuevaCitaConIdProfesionalValido()
+    {
+        $this->assertTrue( $this->cita->profesionalExiste(1));
+    }
+
+    /** @test */
+    public function nuevaCitaConIdProfesionaInvalido()
+    {
+        $this->assertFalse( $this->cita->profesionalExiste(0));
+    }
 
     public function tearDown(): void
     {
