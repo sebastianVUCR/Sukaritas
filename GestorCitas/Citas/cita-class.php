@@ -34,6 +34,22 @@ class Cita {
         }
         
     }
+
+    function crearPaciente($cedula,$nombre,$apellidos, $telefono  ) {
+
+      $sql = "INSERT INTO  Paciente(cedula, nombre, apellidos, telefono)
+      VALUES ('{$cedula}','{$nombre}','{$apellidos}', {$telefono});";
+      if (!$this->conn) {
+          die("Connection failed: " . mysqli_connect_error());
+      }
+      if (mysqli_query($this->conn, $sql)) {
+          echo "New record created successfully";
+      } else {
+          echo "Error: " . $sql . "<br>" . mysqli_error($this->conn);
+      }
+  }
+
+
     function eliminarCita($fecha) {
         $sql = "SELECT fecha FROM Cita WHERE fecha = '{$fecha}';";
         $resultado = mysqli_query($this->conn, $sql);
@@ -50,6 +66,21 @@ class Cita {
             return true;
         }
     }
+
+
+    function eliminarPaciente($cedula){
+      $id = $this->obtenerId($cedula);
+      $sql = "DELETE FROM Paciente WHERE cedula = '{$cedula}';";
+      if (mysqli_query($this->conn, $sql)) {
+        echo "New record created successfully";
+        return true;
+      } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($this->conn);
+      }
+      return false;
+    }
+
+    
 
     function verificarFechaCita($fecha) {
         $sql = "SELECT fecha FROM citas WHERE fecha = '{$fecha}';";
