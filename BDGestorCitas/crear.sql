@@ -14,7 +14,7 @@ create table Profesional(
  id int,
  nombre varchar(100),
  PRIMARY KEY (id),
- FOREIGN KEY (id) REFERENCES Usuario(id)
+ FOREIGN KEY (id) REFERENCES Usuario(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Paciente
@@ -34,8 +34,8 @@ create table Procedimiento(
 	fecha date,
 	idProfesional int,
  	PRIMARY KEY (id),
- 	FOREIGN KEY (cedulaPaciente) REFERENCES Paciente(cedula),
-	FOREIGN KEY (idProfesional) REFERENCES Profesional(id)
+ 	FOREIGN KEY (cedulaPaciente) REFERENCES Paciente(cedula) ON DELETE CASCADE,
+	FOREIGN KEY (idProfesional) REFERENCES Profesional(id) ON DELETE CASCADE
 );
 
 CREATE TABLE Citas
@@ -45,8 +45,8 @@ CREATE TABLE Citas
     idProfesional int,
     cedulaPaciente varchar(15),
     PRIMARY KEY (id),
-    FOREIGN KEY (cedulaPaciente) REFERENCES Paciente(cedula),
-    FOREIGN KEY (idProfesional) REFERENCES Profesional(id)
+    FOREIGN KEY (cedulaPaciente) REFERENCES Paciente(cedula) ON DELETE CASCADE,
+    FOREIGN KEY (idProfesional) REFERENCES Profesional(id) ON DELETE CASCADE
 );
 
 /*
