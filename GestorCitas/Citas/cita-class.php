@@ -23,7 +23,7 @@ class Cita {
     */
     function crearCita($fecha,$idProfesional,$cedula  ) {
 
-        $sql = "INSERT INTO citas (fecha,idProfesional,cedula) VALUES ('{$fecha}','{$idProfesional}','{$cedula}'');";
+        $sql = "INSERT INTO citas (fecha,idProfesional,cedulaPaciente) VALUES ('{$fecha}','{$idProfesional}','{$cedula}');";
         if (!$this->conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
