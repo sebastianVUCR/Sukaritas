@@ -29,12 +29,6 @@ class RegistrarCitaTest extends  PHPUnit\Framework\TestCase
     }
 
     /** @test */
-    public function nuevaCitaConCedulaPacienteNueva()
-    {
-        $this->assertFalse( $this->cita->pacienteExiste("1111111111"));
-    }
-
-    /** @test */
     public function nuevaCitaConIdProfesionalValido()
     {
         $this->assertTrue( $this->cita->profesionalExiste(1));

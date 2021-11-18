@@ -98,6 +98,23 @@ class Cita {
         }
     }
 
+    function profesionalExiste($id) {
+      $sql = "SELECT id FROM profesional WHERE id = '{$id}';";
+        $resultado = mysqli_query($this->conn, $sql);
+        if (!$this->conn) {
+          die("Connection failed: " . mysqli_connect_error());
+        }
+        $data = 0;
+        while ($fila = mysqli_fetch_row($resultado)) {
+          $data = $fila[0];
+        }
+        if($data){
+          return true;
+        }else{
+            return false;
+        }
+    }
+
     function pacienteExiste($cedula) {
       $sql = "SELECT cedula FROM paciente WHERE cedula = '{$cedula}';";
         $resultado = mysqli_query($this->conn, $sql);
