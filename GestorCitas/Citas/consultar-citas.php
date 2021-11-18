@@ -15,16 +15,31 @@
             <h1 id="titulo">Consultar citas</h1>	  
 		</header>
 		<main>
-			<form id="formulario-login" name="formulario-login" method="post" action="login-function.php">
+			<form id="formulario-citas" name="formulario-citas" method="post" action="login-function.php">
                 <fieldset id="area-cedula">
                     <label>Cédula</label>
 				    <input type="number" id="cedula" name="cedula" placeholder="116540419"/>
-					<button type="submit" id="buscar">Buscar</button>
-					<a id="agregar-citas" href="registrar-citas.php">Agregar citas</a>
-
+					<button type="submit" id="buscar">
+						Filtrar <img class="icono" id="icono-buscar" src="icono-buscar.png"></img>
+					</button>
+					<a id="agregar" href="registrar-citas.php">Agregar citas <img id="icono-agregar" src="icono-agregar.png" alt="icono-agregar"></a>
                 </fieldset>   	
+				
             </form>
 			<div id="contenedor-tabla">
+				<table id="tabla">
+					<tr class="titulo-columna">
+						<td>Nombre</td>
+						<td>Cédula</td>
+						<td>Teléfono</td>
+						<td>Fecha</td>
+						<td>Hora</td>
+						<td>Doctor</td>
+					</tr>
+					<?php 
+						include 'prueba-interfaz.php';
+					?>
+				</table>
 			</div>
 		</main>
 	</body>
