@@ -1,5 +1,5 @@
 <?php
-include_once '../login/connect.php';
+include_once 'connect.php';
 class Cita {
     public $conn;
 
@@ -34,5 +34,39 @@ class Cita {
         }
         
     }
+    function eliminarCita($fecha) {
+        $sql = "SELECT fecha FROM Cita WHERE fecha = '{$fecha}';";
+        $resultado = mysqli_query($this->conn, $sql);
+        if (!$this->conn) {
+          die("Connection failed: " . mysqli_connect_error());
+        }
+        $data = 0;
+        while ($fila = mysqli_fetch_row($resultado)) {
+          $data = $fila[0];
+        }
+        if($data === $fecha){
+          return false;
+        }else{
+            return true;
+        }
+    }
+
+    function verificarFechaCita($fecha) {
+        $sql = "SELECT fecha FROM citas WHERE fecha = '{$fecha}';";
+        $resultado = mysqli_query($this->conn, $sql);
+        if (!$this->conn) {
+          die("Connection failed: " . mysqli_connect_error());
+        }
+        $data = 0;
+        while ($fila = mysqli_fetch_row($resultado)) {
+          $data = $fila[0];
+        }
+        if($data == $fecha){//fecha duplicada
+          return false;
+        }else{
+            return true;
+        }
+    }
+
 }
 ?>
