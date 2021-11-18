@@ -86,11 +86,11 @@ class Cita {
 
     function verificarFechaCitaFutura($fecha) {
         
-        $data =date("Y/m/d h:i:s");
+        $data = date("Y-m-d h:i");
         
         echo ($fecha), "\n";
         echo ($data), "\n";
-        if($data <= $fecha){//fecha duplicada
+        if($data < $fecha){//fecha duplicada
             echo ("Hora posible"), "\n";
           return true;
         }else{

@@ -6,6 +6,10 @@ session_start();
 $connect = new Connect();
 $conn = $connect->connectar();
 
+echo '<script language="javascript">
+console.log('.$_SESSION["mensaje"].');
+</script>';
+
 ?>
 
 <!DOCTYPE html>
@@ -22,9 +26,10 @@ $conn = $connect->connectar();
 	</head>
 	<body>
 		<header>
-            <h1 id="titulo">Registrar citas</h1>	  
+            <h1 id="titulo">Registrar citas</h1>	
 		</header>
 		<main>
+            <label id="mensaje" ></label>  
 			<form id="formulario-cita" name="formulario-cita" method="post" action="cita-function.php">
             
                 <fieldset class="input-registrar-cita">
@@ -64,3 +69,48 @@ $conn = $connect->connectar();
 		</main>
 	</body>
 </html>
+
+<?php if(isset( $_SESSION["mensaje"])){
+    if($_SESSION["mensaje"]== 1){
+      $_SESSION["mensaje"] = 0;
+      echo '<script language="javascript">
+      document.getElementById("mensaje").innerHTML="Se registró la cita exitosamente";
+      document.getElementById("mensaje").style.visibility="visible";
+      </script>';
+    }
+    if($_SESSION["mensaje"]== 2){
+      $_SESSION["mensaje"] = 0;
+      echo '<script language="javascript">
+      document.getElementById("mensaje").innerHTML="Error: Paciente no existe";
+      document.getElementById("mensaje").classList.add("error");
+      document.getElementById("mensaje").style.visibility="visible";
+      </script>';
+    }
+    if($_SESSION["mensaje"]== 3){
+      $_SESSION["mensaje"] = 0;
+      echo '<script language="javascript">
+      document.getElementById("mensaje").innerHTML="Error: Profesional no existe";
+      document.getElementById("mensaje").classList.add("error");
+      document.getElementById("mensaje").style.visibility="visible";
+      </script>';
+    }
+    if($_SESSION["mensaje"]== 4){
+        $_SESSION["mensaje"] = 0;
+        echo '<script language="javascript">
+        document.getElementById("mensaje").innerHTML="Error: No se puede registrar una cita en una fecha del pasado";
+        document.getElementById("mensaje").classList.add("error");
+        document.getElementById("mensaje").style.visibility="visible";
+        </script>';
+    }
+    if($_SESSION["mensaje"]== 5){
+        $_SESSION["mensaje"] = 0;
+        echo '<script language="javascript">
+        document.getElementById("mensaje").innerHTML="Error: La fecha y hora escogidas ya estan reservadas";
+        document.getElementById("mensaje").classList.add("error");
+        document.getElementById("mensaje").style.visibility="visible";
+        </script>';
+    }
+
+	}else{
+		$_SESSION["mensaje"] = 0;
+	} ?>

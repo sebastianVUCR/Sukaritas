@@ -68,6 +68,17 @@ label{
 main, header {
     margin-top: 2%;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#mensaje {
+    margin-bottom: 5%;
+    display: block;
+    font-size: large;
+  }
+
+.error{
+    color: red;
 }
 
