@@ -1,5 +1,5 @@
 <?php
-include_once 'connect.php';
+include_once '../login/connect.php';
 class Cita {
     public $conn;
 
@@ -21,9 +21,9 @@ class Cita {
     /*
     Esta función se utiliza para que los desarrollador creen citas
     */
-    function crearCita($fecha,$idProfesional, $telefono,$cedula  ) {
+    function crearCita($fecha,$idProfesional,$cedula  ) {
 
-        $sql = "INSERT INTO citas (fecha,idProfesional,cedula) VALUES ('{$cedula}','{$rol}','{$intentos}','{$estado}','{$password}');";
+        $sql = "INSERT INTO citas (fecha,idProfesional,cedula) VALUES ('{$fecha}','{$idProfesional}','{$cedula}'');";
         if (!$this->conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
