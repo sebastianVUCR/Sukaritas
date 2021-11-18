@@ -13,7 +13,25 @@ class LoginTest extends  PHPUnit\Framework\TestCase
     /** @test */
     public function nuevaCitaEnFechaYHoraReservada()
     {
-        $this->assertFalse( $this->cita->verificarFechaCita("2025-11-18 13:31"));
+        $this->assertFalse( $this->cita->verificarFechaCita("2025-11-18 13:31:00"));
+    }
+
+    /** @test */
+    public function nuevaCitaEnFechaYHoraLibre()
+    {
+        $this->assertTrue( $this->cita->verificarFechaCita("2025-11-18 13:32:00"));
+    }
+
+    /** @test */
+    public function nuevaCitaEnFechaYHoraEnElPasado()
+    {
+        $this->assertfalse( $this->cita->verificarFechaCitaFutura("2020-11-18 13:32:00"));
+    }
+
+/** @test */
+    public function nuevaCitaEnFechaYHoraEnFechaProxima()
+    {
+        $this->assertTrue( $this->cita->verificarFechaCitaFutura("2025-11-18 13:32:00"));
     }
 }
 ?>
