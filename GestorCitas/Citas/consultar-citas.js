@@ -39,22 +39,28 @@ function fetchCitas() {
 function dibujaPantalla(response) {
   $("#error").html("");
   console.log(response);
-  const citas = JSON.parse(response);
-  let template = "";
-  $("#citas").html(template);
-  citas.forEach((cita) => {
-    template += `
-      <tr class="tupla">
-      <td>${cita.nombrePaciente}</td>
-      <td>${cita.cedulaPaciente}</td>
-      <td>${cita.telefono}</td>
-      <td>${cita.fecha}</td>
-      <td>${cita.hora}</td>
-      <td>${cita.nombreProfesional}</td>
-      </tr>
-    `;
-  });
-  $("#citas").html(template);
+  if (response == "SinCita") {
+    $("#error").html("No hay citas registradas");
+    let template = "";
+    $("#citas").html(template);
+  } else {
+    const citas = JSON.parse(response);
+    let template = "";
+    $("#citas").html(template);
+    citas.forEach((cita) => {
+      template += `
+        <tr class="tupla">
+        <td>${cita.nombrePaciente}</td>
+        <td>${cita.cedulaPaciente}</td>
+        <td>${cita.telefono}</td>
+        <td>${cita.fecha}</td>
+        <td>${cita.hora}</td>
+        <td>${cita.nombreProfesional}</td>
+        </tr>
+      `;
+    });
+    $("#citas").html(template);
+  }
 }
 
 function redirectAgregarCitas() {

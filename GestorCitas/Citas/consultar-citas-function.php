@@ -25,7 +25,11 @@
         'telefono'=> $paciente->obtenerTelefono($cita['cedulaPaciente']),
       );
      }
-    $citas = json_encode($citasString);
+     if(isset($citasString)){
+      $citas = json_encode($citasString);
+     }else{
+      $citas = "SinCita";
+     }
   }else{
     $citas = json_encode($citas);
   }
