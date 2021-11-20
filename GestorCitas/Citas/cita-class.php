@@ -132,6 +132,37 @@ class Cita {
             return false;
         }
     }
+    /*
+      Esta función retorna un array con las citas que coincidan con la cedula, si
+      el campo cedula esta vacio retorna todas las citas.
+    */ 
+    function buscaCitasCedula($cedula) {
+      if($cedula != ""){
+        if($this->pacienteExiste($cedula)){
+          $sql = "SELECT * FROM Citas WHERE cedulaPaciente = '{$cedula}';";
+        }else{
+          return false;
+        }
+      }else{
+        $sql = "SELECT * FROM Citas ;";
+      }
+      $resultado = mysqli_query($this->conn, $sql);
+      if (!$this->conn) {
+        die("Connection failed: " . mysqli_connect_error());
+      }
+      $citas = array();
+      while ($row = mysqli_fetch_row($resultado)) {
+        $fechaHora = explode(" ", $row[1]);
+        $citas[] = array(
+          'id' => $row[0],
+          'fecha' => $fechaHora[0],
+          'hora' =>  $fechaHora[1],
+          'idProfesional' => $row[2],
+          'cedulaPaciente' => $row[3],
+        );
+      }
+      return $citas;
+    }
 
 }
 ?>

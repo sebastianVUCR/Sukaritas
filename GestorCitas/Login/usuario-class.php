@@ -196,7 +196,7 @@ class Usuario {
       }
     }
 
-
+    
     /*
     Reduce la cantidad de intento que tiene un usuario para ingresar su contraseña, esta función
     se llama después de que el usuario de equivoca.

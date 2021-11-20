@@ -12,20 +12,22 @@
 	</head>
 	<body>
 		<header>
-            <h1 id="titulo">Consultar citas</h1>	  
+      <h1 id="titulo">Consultar citas</h1>	  
 		</header>
 		<main>
 			<form id="formulario-citas" name="formulario-citas" method="post" action="login-function.php">
-                <fieldset id="area-cedula">
-                    <label>Cédula</label>
-				    <input type="number" id="cedula" name="cedula" placeholder="116540419"/>
-					<button type="submit" id="buscar">
-						Filtrar <img class="icono" id="icono-buscar" src="icono-buscar.png"></img>
-					</button>
-					<a id="agregar" href="registrar-citas.php">Agregar citas <img id="icono-agregar" src="icono-agregar.png" alt="icono-agregar"></a>
-                </fieldset>   	
-				
-            </form>
+        <fieldset id="area-cedula">
+          <label>Cédula</label>
+          <input type="number" id="cedula" name="cedula" placeholder="116540419"/>
+          <button type="submit" id="buscar">
+            Filtrar <img class="icono" id="icono-buscar" src="icono-buscar.png"></img>
+          </button>
+          <a id="agregar" href="registrar-citas.php">Agregar citas <img id="icono-agregar" src="icono-agregar.png" alt="icono-agregar"></a>
+        </fieldset>
+       </form>
+       <label id="mensaje-error" class="error">
+					<p class="requerido" id="error"> </p>
+				</label>
 			<div id="contenedor-tabla">
 				<table id="tabla">
 					<tr class="titulo-columna">
@@ -36,11 +38,18 @@
 						<td>Hora</td>
 						<td>Doctor</td>
 					</tr>
+          <tbody id="citas"></tbody>
 					<?php 
-						include 'prueba-interfaz.php';
+						// include 'prueba-interfaz.php';
 					?>
 				</table>
 			</div>
 		</main>
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.min.js"
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			crossorigin="anonymous">
+		</script>
+    <script src="consultar-citas.js"></script>
 	</body>
 </html>

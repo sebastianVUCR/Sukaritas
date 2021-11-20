@@ -11,30 +11,27 @@
 	</head>
 	<body>
 		<header>
-            <h1 id="titulo">Gestor de citas Softville</h1>	  
+      <h1 id="titulo">Gestor de citas Softville</h1>	  
 		</header>
 		<main>
 			<form id="formulario-login" name="formulario-login" method="post" action="login-function.php">
 				<h2 id="titulo-formulario">Iniciar Sesión</h2>
-                <fieldset id="area-cedula">
-                    <label>Cédula</label>
-				    <input type="number" id="cedula" name="cedula" placeholder="116540419 " required/>
-                </fieldset>
-
-                <fieldset id="area-contrasena">
-                    <label>Contraseña</label>
-				    <input type="password" id="contrasena" name="contrasena" placeholder="*********" required/>
-                </fieldset>
-
+        <fieldset id="area-cedula">
+          <label>Cédula</label>
+				  <input type="number" id="cedula" name="cedula" placeholder="116540419 " required/>
+        </fieldset>
+        <fieldset id="area-contrasena">
+          <label>Contraseña</label>
+				  <input type="password" id="contrasena" name="contrasena" placeholder="*********" required/>
+        </fieldset>
 				<label id="mensaje-error" class="error">
 					<p class="requerido"> Los datos ingresados son incorrectos </p>
 				</label>
-
 				<div id="contenedor-boton">
-                	<button type="submit" id="ingresar">Ingresar</button>
+          <button type="submit" id="ingresar">Ingresar</button>
 				</div>
-                <button type="submit" id="submit-escondido" class="hidden-submit" hidden>validar entradas</button>
-            </form>
+        <button type="submit" id="submit-escondido" class="hidden-submit" hidden>validar entradas</button>
+      </form>
 		</main>
 	</body>
 </html>
