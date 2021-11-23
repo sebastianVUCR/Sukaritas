@@ -17,6 +17,28 @@ class Profesional {
       $this->conn -> close();
     }
 
+
+    /*
+    Esta función se utiliza para que los desarrollador creen profesionales
+    */
+    function agregarProfesional($id,$nombre) {
+      if(!$this->existeProfesional($id)) {
+        $sql = "INSERT INTO Profesional (id,nombre) VALUES ('{$id}','{$nombre}');";
+        if (!$this->conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        if (mysqli_query($this->conn, $sql)) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($this->conn);
+        }
+      }else{
+        echo "Error: Profesional ya existe";
+      }
+    }
+
+
+
     /*
     Devuelve el nombre del profesional con el id ingresado
     */
@@ -53,5 +75,22 @@ class Profesional {
         }
         return false;
       }
+
+      
+    /*
+    función de desarrollador para eliminar un cédula
+     */
+    function eliminarProfesional($id){
+      if($this->existeProfesional($id)){
+        $sql = "DELETE FROM Profesional WHERE id = '{$id}';";
+        if (mysqli_query($this->conn, $sql)) {
+          echo "New record created successfully";
+          return true;
+        } else {
+          echo "Error: " . $sql . "<br>" . mysqli_error($this->conn);
+        }
+      }
+      return false;
+    }
 }
 ?>
