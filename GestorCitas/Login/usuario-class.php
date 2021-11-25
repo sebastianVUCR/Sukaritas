@@ -105,6 +105,9 @@ class Usuario {
     To do: si se quiere utilizar esta función en producción es necesario realizar todas las consultas en 
     un procedimiento almacenada para asegurar la atomicidad
      */
+	/**
+	* @codeCoverageIgnore
+	*/
     function desbloquearUsuario($cedula){
       if($this->existeUsuario($cedula)){
         $id = $this->obtenerId($cedula);
@@ -164,6 +167,9 @@ class Usuario {
     /*
     función de desarrollador para eliminar un cédula
      */
+	/**
+	* @codeCoverageIgnore
+	*/
     function eliminarUsuario($cedula){
       if($this->existeUsuario($cedula)){
         $id = $this->obtenerId($cedula);
@@ -223,6 +229,9 @@ class Usuario {
     /*
     Devuelve el id del usuario con una cédula
     */
+    /**
+     * @codeCoverageIgnore
+     */
     function obtenerId($cedula){
       if($this->existeUsuario($cedula)){
         $sql = "SELECT id FROM Usuario WHERE cedula = '{$cedula}';";

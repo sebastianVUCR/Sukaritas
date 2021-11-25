@@ -22,6 +22,9 @@ class Cita {
     /*
     Esta función se utiliza para que los desarrollador creen citas
     */
+	/**
+	* @codeCoverageIgnore
+	*/
     function crearCita($fecha,$idProfesional,$cedula  ) {
 
         $sql = "INSERT INTO citas (fecha,idProfesional,cedulaPaciente) VALUES ('{$fecha}','{$idProfesional}','{$cedula}');";
@@ -72,9 +75,26 @@ class Cita {
         }
     }
 
-
+    /**
+     * @codeCoverageIgnore
+     */
     function eliminarPaciente($cedula){
       $sql = "DELETE FROM Paciente WHERE cedula = '{$cedula}';";
+      if (mysqli_query($this->conn, $sql)) {
+        echo "New record created successfully";
+        return true;
+      } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($this->conn);
+      }
+      return false;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    function eliminarCita($cedulaPaciente, $idProfesional){
+      $sql = "DELETE FROM Citas WHERE cedulaPaciente = '{$cedulaPaciente}' and
+                                      idProfesional = '{$idProfesional}';";
       if (mysqli_query($this->conn, $sql)) {
         echo "New record created successfully";
         return true;

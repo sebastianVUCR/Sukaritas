@@ -15,7 +15,7 @@
       <h1 id="titulo">Consultar citas</h1>	  
 		</header>
 		<main>
-			<form id="formulario-citas" name="formulario-citas" method="post" action="login-function.php">
+			<form id="formulario-citas" name="formulario-citas" method="post" action="">
         <fieldset id="area-cedula">
           <label>Cédula</label>
           <input type="number" id="cedula" name="cedula" placeholder="116540419"/>
@@ -39,9 +39,6 @@
 						<td>Doctor</td>
 					</tr>
           <tbody id="citas"></tbody>
-					<?php 
-						// include 'prueba-interfaz.php';
-					?>
 				</table>
 			</div>
 		</main>

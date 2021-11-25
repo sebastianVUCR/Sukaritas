@@ -26,16 +26,6 @@ class RealizarConsultaTest extends  PHPUnit\Framework\TestCase
     {
         $this->assertCount(2, $this->citas->buscaCitasCedula("101110111"));
     }
-     /** @test */
-     public function buscarCitasSinFiltro()
-     {
-         $this->assertTrue($this->citas->buscaCitasCedula("") >= 3);
-     }
-    /** @test */
-    public function existeCedulaCliente()
-    {
-        $this->assertTrue( $this->citas->pacienteExiste("101110111"));
-    }
 
     public function tearDown(): void
     {

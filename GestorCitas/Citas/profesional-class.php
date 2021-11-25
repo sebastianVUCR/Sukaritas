@@ -21,6 +21,9 @@ class Profesional {
     /*
     Esta función se utiliza para que los desarrollador creen profesionales
     */
+	/**
+	* @codeCoverageIgnore
+	*/
     function agregarProfesional($id,$nombre) {
       if(!$this->existeProfesional($id)) {
         $sql = "INSERT INTO Profesional (id,nombre) VALUES ('{$id}','{$nombre}');";
@@ -80,6 +83,9 @@ class Profesional {
     /*
     función de desarrollador para eliminar un cédula
      */
+	/**
+	* @codeCoverageIgnore
+	*/
     function eliminarProfesional($id){
       if($this->existeProfesional($id)){
         $sql = "DELETE FROM Profesional WHERE id = '{$id}';";

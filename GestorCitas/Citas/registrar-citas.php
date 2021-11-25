@@ -42,11 +42,13 @@ console.log('.$_SESSION["mensaje"].');
                     <select required id="idProfesional" name="idProfesional">
                         <option value = 0>Seleccione uno</option>
                     <?php 
+                    // @codeCoverageIgnoreStart
                     $sqli ="Select * from profesional";
                     $resultado=mysqli_query($conn,$sqli);
                     while($row =mysqli_fetch_array($resultado)){
                         echo '<option value='.$row['id'].' >'.$row['nombre'].'</option>';
                     }
+                    // @codeCoverageIgnoreEnd
                     ?>
                     </select>
                 </fieldset>
@@ -70,7 +72,9 @@ console.log('.$_SESSION["mensaje"].');
 	</body>
 </html>
 
-<?php if(isset( $_SESSION["mensaje"])){
+<?php 
+    // @codeCoverageIgnoreStart
+    if(isset( $_SESSION["mensaje"])){
     if($_SESSION["mensaje"]== 1){
       $_SESSION["mensaje"] = 0;
       echo '<script language="javascript">
@@ -113,4 +117,6 @@ console.log('.$_SESSION["mensaje"].');
 
 	}else{
 		$_SESSION["mensaje"] = 0;
-	} ?>
+	} 
+    // @codeCoverageIgnoreEnd
+    ?>
