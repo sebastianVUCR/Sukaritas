@@ -1,8 +1,15 @@
 <?php
-    include 'cita-class.php';
-    function controladorRegistrarCita() {
+    include_once 'cita-class.php';
+    /** 
+     * @codeCoverageIgnore
+    */
+    function llamarControlador() {
         session_start();
+        controladorRegistrarCita();
+        header('Location: registrar-citas.php');
+    }
 
+    function controladorRegistrarCita() {
         $hora = $_POST["hora_cita"];
         $fecha = $_POST["fecha_cita"]." ".$hora.":00";
 
@@ -34,9 +41,6 @@
             $_SESSION["mensaje"] = 1; //Se creo la cita exitosamente
             $nuevaCita->crearCita($fecha,$idProfesional,$cedula);
         }
-
-        header('Location: registrar-citas.php');
-        $nuevaCita->crearCita($fecha,$idProfesional,$cedula);
     }
-    controladorRegistrarCita();
+    llamarControlador();
 ?>

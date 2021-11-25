@@ -22,9 +22,6 @@ class Cita {
     /*
     Esta función se utiliza para que los desarrollador creen citas
     */
-	/**
-	* @codeCoverageIgnore
-	*/
     function crearCita($fecha,$idProfesional,$cedula  ) {
 
         $sql = "INSERT INTO citas (fecha,idProfesional,cedulaPaciente) VALUES ('{$fecha}','{$idProfesional}','{$cedula}');";
@@ -53,7 +50,7 @@ class Cita {
       }
   }
 
-
+    //todo:documentar
     function verificarFechaCita($fecha) {
         $sql = "SELECT fecha FROM citas WHERE fecha = '{$fecha}';";
         $resultado = mysqli_query($this->conn, $sql);
