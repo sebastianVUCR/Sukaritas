@@ -1,8 +1,12 @@
 <?php
   include 'usuario-class.php';
 
-  function controladorLogin() {
+  function llamarControlador() {
     session_start();
+    controladorLogin();
+  }
+
+  function controladorLogin() {
     $usuario = new Usuario();
     /*Revisa que no se inyecte código*/
     $cedula = filter_var($_POST["cedula"], FILTER_SANITIZE_NUMBER_INT);
@@ -24,5 +28,5 @@
       header('Location: login.php');
     }
   }
-  controladorLogin();
+  llamarControlador();
 ?>

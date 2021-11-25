@@ -37,6 +37,7 @@
 </html>
 
 <?php
+  //@codeCoverageIgnoreStart
   session_start();
 	if(isset( $_SESSION["logeo"])){
     if($_SESSION["logeo"]== 1){
@@ -61,4 +62,5 @@
 	}else{
 		$_SESSION["logeo"] = 0;
 	}
+  //@codeCoverageIgnoreEnd  
 ?>

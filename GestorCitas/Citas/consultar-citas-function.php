@@ -4,7 +4,6 @@
   include_once 'paciente-class.php';
 
   function controladorConsultarCitas(){
-    session_start();
     $cita = new Cita();
     $paciente = new Paciente();
     $profesional = new Profesional();
