@@ -19,7 +19,7 @@ console.log('.$_SESSION["mensaje"].');
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<title>Gestor de citas Softville</title>
 		<?php
-				include '../Compartido/navbar.php';
+				include_once '../Compartido/navbar.php';
 			?>
 			<link rel="stylesheet" href="../Compartido/colores.css"/>
 			<link rel="stylesheet" href="registrar-citas.css"/>
