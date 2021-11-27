@@ -1,7 +1,10 @@
 <?php
-  include 'usuario-class.php';
+  include_once 'usuario-class.php';
 
-  function llamarControlador() {
+  /**
+   * @codeCoverageIgnore
+   */
+  function llamarControladorLogin() {
     session_start();
     controladorLogin();
   }
@@ -28,5 +31,5 @@
       header('Location: login.php');
     }
   }
-  llamarControlador();
+  llamarControladorLogin();
 ?>

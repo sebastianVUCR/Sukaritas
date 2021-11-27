@@ -1,5 +1,5 @@
 <?php
-  include 'cita-class.php';
+  include_once 'cita-class.php';
   include_once 'profesional-class.php';
   include_once 'paciente-class.php';
 
