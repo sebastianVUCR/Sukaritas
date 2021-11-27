@@ -1,2 +1,4 @@
 cd C:\xampp\htdocs\Sukaritas\vendor\bin
-phpunit --coverage-xml ..\..\TestsGestorCitas\cobertura
+phpunit --coverage-html ..\..\TestsGestorCitas\cobertura
+
+excluir cobertura en C:\xampp\htdocs\Sukaritas\vendor\bin\phpunit.xml
