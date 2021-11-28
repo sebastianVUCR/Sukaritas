@@ -10,29 +10,41 @@ class RegistrarPacienteTest extends  PHPUnit\Framework\TestCase
         $this->validador = new ValidadorDatosPaciente();
     }
 
-    // /** @test */
-    // public function cedulaLargaInvalidaTest()
-    // {
-    //     $this->assertFalse($this->validador->cedulaEsValida('1234567890123456'));
-    // }
+    /** @test */
+    public function cedulaLargaInvalidaTest()
+    {
+        $this->assertFalse($this->validador->cedulaEsValida('1234567890123456'));
+    }
 
-    // /** @test */
-    // public function cedulaLargaValidaTest()
-    // {
-    //     $this->assertTrue($this->validador->cedulaEsValida('123456789012345'));
-    // }
+    /** @test */
+    public function cedulaLargaValidaTest()
+    {
+        $this->assertTrue($this->validador->cedulaEsValida('123456789012345'));
+    }
 
-    // /** @test */
-    // public function cedulaValidaCortaTest()
-    // {
-    //     $this->assertTrue($this->validador->cedulaEsValida('116540419'));
-    // }
+    /** @test */
+    public function cedulaConCeros()
+    {
+        $this->assertFalse($this->validador->cedulaEsValida('012345678901234'));
+    }
 
-    // /** @test */
-    // public function cedulaValidaLargaTest()
-    // {
-    //     $this->assertTrue($this->validador->cedulaEsValida('12345789012345'));
-    // }
+    /** @test */
+    public function cedulaLargaConCeros()
+    {
+        $this->assertFalse($this->validador->cedulaEsValida('016540419'));
+    }
+
+    /** @test */
+    public function cedulaValidaCortaTest()
+    {
+        $this->assertTrue($this->validador->cedulaEsValida('116540419'));
+    }
+
+    /** @test */
+    public function cedulaValidaLargaTest()
+    {
+        $this->assertTrue($this->validador->cedulaEsValida('12345789012345'));
+    }
 
     /** @test */
     public function nombreValidoTest() {
@@ -84,6 +96,11 @@ class RegistrarPacienteTest extends  PHPUnit\Framework\TestCase
     /** @test */
     public function inicioMayusculaTest() {
         $this->assertEquals($this->validador->inicioMayuscula('sebas'), 'Sebas');
+    }
+
+    /** @test */
+    public function inicioMayusculaSinCambiarTest() {
+        $this->assertEquals($this->validador->inicioMayuscula('Sebas'), 'Sebas');
     }
 
     /*

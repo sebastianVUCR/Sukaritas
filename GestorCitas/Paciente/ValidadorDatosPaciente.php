@@ -9,7 +9,15 @@
         // @codeCoverageIgnoreEnd
 
         function cedulaEsValida(string $cedula) {
-            return true;
+            $esValido = null;
+            $patron = '/^[1-9]{1}+([0-9]){8,14}$/';
+            if(preg_match_all($patron, $cedula) === 1) {
+                $esValido = true;
+            }
+            else {
+                $esValido = false;
+            }
+            return  $esValido;
         }
 
         function nombreEsValido(string $nombre) {
