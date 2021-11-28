@@ -44,11 +44,6 @@
             return $esValido;
         }
 
-
-            //Regex101
-            //ejemplo de regex de correo
-            //[a-z]+([a-z0-9]+)?([a-z]+[-.]+)?([a-z]+[-.][a-z]+[0-9]+)?([a-z]+[0-9]+[a-z]+[-.][a-z]+)?@[a-z]+([-][a-z]+)?[.][a-z]+
-
         function telefonoEsValido(string $telefono) {
             $esValido = null;
             $patron = '/[0-9]{3,30}/';

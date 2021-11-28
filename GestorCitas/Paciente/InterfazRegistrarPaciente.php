@@ -1,12 +1,3 @@
-<?php 
-include_once '../login/connect.php';
-
-echo '<script language="javascript">
-console.log('.$_SESSION["mensaje"].');
-</script>';
-
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -17,7 +8,7 @@ console.log('.$_SESSION["mensaje"].');
 				include_once '../Compartido/navbar.php';
 			?>
 			<link rel="stylesheet" href="../Compartido/colores.css"/>
-			<link rel="stylesheet" href="registrar-citas.css"/>
+			<link rel="stylesheet" href="../Citas/registrar-citas.css"/>
 	</head>
 	<body>
 		<header>
@@ -29,13 +20,22 @@ console.log('.$_SESSION["mensaje"].');
             
                 <fieldset class="input-registrar-cita">
                     <label>Cédula</label>
-                    <input type="text" id="cedula" name="cedula" placeholder=" " required/>
+                    <input type="text" id="cedula" name="cedula" placeholder="116540419" required/>
                 </fieldset>
-                
 
-                <fieldset class="input-registrar-cita">
-                    <label>Fecha de la cita </label>
-                    <input type="date" id="fecha_cita" name="fecha_cita" required>
+				<fieldset class="input-registrar-cita">
+                    <label>Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre del paciente" required/>
+                </fieldset>
+
+				<fieldset class="input-registrar-cita">
+                    <label>Apellido</label>
+                    <input type="text" id="apellido" name="apellido" placeholder="Ingrese el apellido del paciente" required/>
+                </fieldset>
+
+				<fieldset class="input-registrar-cita">
+                    <label>Telefono</label>
+                    <input type="number" id="telefono" name="telefono" placeholder="Ingrese el telefono del paciente"/>
                 </fieldset>
 
                 <div id="button-box">
