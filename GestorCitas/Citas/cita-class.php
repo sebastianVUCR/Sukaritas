@@ -36,6 +36,12 @@ class Cita {
         
     }
 
+    /**
+     * Registrar pacientes se usa en:
+     * -registrar citas 
+     * -pruebas de registrar citas
+     * -controlador de registrar paciente
+     */
     function crearPaciente($cedula,$nombre,$apellidos, $telefono  ) {
 
       $sql = "INSERT INTO  Paciente(cedula, nombre, apellidos, telefono)
@@ -153,15 +159,15 @@ class Cita {
       Esta función retorna un array con las citas que coincidan con la cedula, si
       el campo cedula esta vacio retorna todas las citas.
     */ 
-    function buscaCitasCedula($cedula) {
+    function buscaCitasCedula($cedula,$idProfesional) {
       if($cedula != ""){
         if($this->pacienteExiste($cedula)){
-          $sql = "SELECT * FROM Citas WHERE cedulaPaciente = '{$cedula}';";
+          $sql = "SELECT * FROM Citas WHERE cedulaPaciente = '{$cedula}' and idProfesional ='{$idProfesional}';";
         }else{
           return false;
         }
       }else{
-        $sql = "SELECT * FROM Citas ;";
+        $sql = "SELECT * FROM Citas WHERE idProfesional ='{$idProfesional}' ;";
       }
       $resultado = mysqli_query($this->conn, $sql);
       if (!$this->conn) {

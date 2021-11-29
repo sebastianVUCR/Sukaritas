@@ -21,6 +21,9 @@ class Usuario {
     /*
     Esta función se utiliza para que los desarrollador creen usuarios
     */
+    /**
+    * @codeCoverageIgnore
+    */
     function crearUsuario($cedula,$rol,$intentos,$estado,$clave) {
       if(!$this->existeUsuario($cedula)) {
         $password = password_hash($clave, PASSWORD_DEFAULT);

@@ -36,6 +36,13 @@ class LoginTest extends  PHPUnit\Framework\TestCase
     {
         $this->usuario->bloquearUsuario("12345678");
         $this->assertFalse( $this->usuario->permisoIngresar("12345678","password"));
+       
+    }
+
+    /** @test */
+    public function usuarioDesbloqueadoHaceLogin()
+    {
+        $this->usuario->bloquearUsuario("12345678");
         $this->usuario->desbloquearUsuario("12345678");
         $this->assertTrue( $this->usuario->permisoIngresar("12345678","password"));
     }
