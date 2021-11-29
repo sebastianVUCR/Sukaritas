@@ -1,18 +1,22 @@
 $(document).ready(function () {
   // Obtiene todas las citas //
   fetchCitas();
+  // Obtiene todos los profesionales //
+  fetchProfesionales();
   /*Si le dan submit al formulario de buscar*/
   $("#formulario-citas").submit((e) => {
     e.preventDefault();
     /*Obtiene los datos del formulario*/
     const postData = {
       cedula: $("#cedula").val(),
+      idProfesional: $("#idProfesional").val(),
     };
+
     /*Dirección a la que se envia el post*/
     const url = "consultar-citas-function.php";
     /*Se efectua el post y se espera una promesa con la respuesta*/
     $.post(url, postData, (response) => {
-      $("#formulario-citas").trigger("reset");
+      //$("#formulario-citas").trigger("reset");
       /*Si la respuesta es false significa que la cedula no esta registrada*/
       if (response != "false") {
         dibujaPantalla(response);
@@ -35,6 +39,37 @@ function fetchCitas() {
     },
   });
 }
+
+/*Realiza una solicitud get sin datos en el post para recibir todos los profesionales*/
+function fetchProfesionales() {
+  $.ajax({
+    url: "obtener-profesionales-function.php",
+    type: "GET",
+    success: function (response) {
+      dibujaProfesionales(response);
+    },
+  });
+}
+/*Coloca los datos en el dropdown*/
+function dibujaProfesionales(response) {
+  if (response == "SinProfesionales") {
+    $("#error").html("No hay profesionales registrados");
+    let template = "";
+    $("#buscar").prop("disabled", true);
+    $("#idProfesional").html(template);
+  } else {
+    const profesionales = JSON.parse(response);
+    let template = "";
+    $("#idProfesional").html(template);
+    profesionales.forEach((profesional) => {
+      template += `
+      <option value= ${profesional.id} >${profesional.nombre}</option>
+      `;
+    });
+    $("#idProfesional").html(template);
+  }
+}
+
 /*Coloca los datos en la tabla*/
 function dibujaPantalla(response) {
   $("#error").html("");

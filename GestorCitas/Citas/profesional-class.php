@@ -98,5 +98,21 @@ class Profesional {
       }
       return false;
     }
+
+    function obtenerProfesionales(){
+      $sql = "SELECT * FROM Profesional ;";
+      $resultado = mysqli_query($this->conn, $sql);
+      if (!$this->conn) {
+        die("Connection failed: " . mysqli_connect_error());
+      }
+      $profesionales = array();
+      while ($row = mysqli_fetch_row($resultado)) {
+        $profesionales[] = array(
+          'id' => $row[0],
+          'nombre' => $row[1],
+        );
+      }
+      return $profesionales;
+    }    
 }
 ?>
