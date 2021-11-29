@@ -18,8 +18,12 @@
 			<form id="formulario-citas" name="formulario-citas" method="post" action="">
         <fieldset id="area-cedula">
           <label>Cédula</label>
-          <input type="number" id="cedula" name="cedula" placeholder="116540419"/>
-          <button type="submit" id="buscar">
+          <input type="number" id="cedula"  name="cedula" style="width: 6em;" placeholder="116540419"/>
+            <label>Profesional</label>
+            <select required id="idProfesional" name="idProfesional">
+              
+            </select>
+          <button type="submit" id="buscar" >
             Filtrar <img class="icono" id="icono-buscar" src="icono-buscar.png"></img>
           </button>
           <a id="agregar" href="registrar-citas.php">Agregar citas <img id="icono-agregar" src="icono-agregar.png" alt="icono-agregar"></a>
@@ -36,7 +40,7 @@
 						<td>Teléfono</td>
 						<td>Fecha</td>
 						<td>Hora</td>
-						<td>Doctor</td>
+						<td>Profesional de la salud</td>
 					</tr>
           <tbody id="citas"></tbody>
 				</table>
