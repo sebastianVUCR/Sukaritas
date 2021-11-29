@@ -18,7 +18,7 @@
 			<form id="formulario-citas" name="formulario-citas" method="post" action="">
         <fieldset id="area-cedula">
           <label>Cédula</label>
-          <input type="number" id="cedula" name="cedula" placeholder="116540419"/>
+          <input type="number" id="cedula"  name="cedula" style="width: 6em;" placeholder="116540419"/>
             <label>Profesional</label>
             <select required id="idProfesional" name="idProfesional">
               
@@ -40,7 +40,7 @@
 						<td>Teléfono</td>
 						<td>Fecha</td>
 						<td>Hora</td>
-						<td>Doctor</td>
+						<td>Profesional de la salud</td>
 					</tr>
           <tbody id="citas"></tbody>
 				</table>
