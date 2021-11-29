@@ -14,8 +14,8 @@
             }  
             else {
                 echo '<script language="javascript">
-                document.getElementById("mensaje").innerHTML="Se registró el paciente ccorrecctamente.";
-                document.getElementById("mensaje").style.visibility="visible";
+                document.getElementById("mensaje").innerHTML="'.$_SESSION["mensajePaciente"].'";
+                document.getElementById("mensaje").style.visibility="visible";s
                 </script>';
             }
             $_SESSION["mensajePaciente"] = null;
