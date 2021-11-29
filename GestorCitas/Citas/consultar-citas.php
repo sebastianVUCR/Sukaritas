@@ -19,7 +19,11 @@
         <fieldset id="area-cedula">
           <label>Cédula</label>
           <input type="number" id="cedula" name="cedula" placeholder="116540419"/>
-          <button type="submit" id="buscar">
+            <label>Profesional</label>
+            <select required id="idProfesional" name="idProfesional">
+              
+            </select>
+          <button type="submit" id="buscar" >
             Filtrar <img class="icono" id="icono-buscar" src="icono-buscar.png"></img>
           </button>
           <a id="agregar" href="registrar-citas.php">Agregar citas <img id="icono-agregar" src="icono-agregar.png" alt="icono-agregar"></a>
