@@ -15,10 +15,11 @@
             else {
                 echo '<script language="javascript">
                 document.getElementById("mensaje").innerHTML="Se registró el paciente ccorrecctamente.";
-                document.getElementById("mensaje").classList.add("error");
                 document.getElementById("mensaje").style.visibility="visible";
                 </script>';
             }
+            $_SESSION["mensajePaciente"] = null;
+            $_SESSION["mensajePacienteTipo"] = null;
         }
     }
     desplegarMensaje();

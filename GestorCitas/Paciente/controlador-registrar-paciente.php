@@ -14,8 +14,6 @@
     header('Location: InterfazRegistrarPaciente.php');
   }
 
-  
-
   function ControladorRegistrarPaciente() {
       $validador = new ValidadorDatosPaciente();
       $cedula = filter_var($_POST["cedula"], FILTER_SANITIZE_NUMBER_INT);
@@ -32,7 +30,7 @@
       } else if (!$validador->apellidoEsValido($apellido)) {
         $_SESSION['mensajePaciente'] = 'El apellido ingresado no es válido';
         $_SESSION['mensajePacienteTipo'] = 'error';
-      } else if($validador->telefonoEsValido($telefono)) {
+      } else if(!$validador->telefonoEsValido($telefono)) {
         $_SESSION['mensajePaciente'] = 'El telefono ingresado no es válido';
         $_SESSION['mensajePacienteTipo'] = 'error';
       } else {
@@ -40,7 +38,10 @@
         if(!$cita->pacienteExiste($cedula)) {
           $cita->crearPaciente($cedula, $nombre, $apellido, $telefono);
           $_SESSION['mensajePaciente'] = '¡El Paciente fue registrado exitosamente!';
-          $_SESSION['mensajePacienteTipo'] = '';
+          $_SESSION['mensajePacienteTipo'] = 'exito';
+        } else{
+          $_SESSION['mensajePaciente'] = 'El paciente ya está registrado.';
+          $_SESSION['mensajePacienteTipo'] = 'error';
         }
       }
 
