@@ -30,7 +30,7 @@
       } else if (!$validador->apellidoEsValido($apellido)) {
         $_SESSION['mensajePaciente'] = 'El apellido ingresado no es válido';
         $_SESSION['mensajePacienteTipo'] = 'error';
-      } else if(!$validador->telefonoEsValido($telefono)) {
+      } else if(!$validador->telefonoEsValido($telefono) && $telefono != null) {
         $_SESSION['mensajePaciente'] = 'El telefono ingresado no es válido';
         $_SESSION['mensajePacienteTipo'] = 'error';
       } else {
