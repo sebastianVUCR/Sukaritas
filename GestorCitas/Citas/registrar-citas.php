@@ -5,11 +5,11 @@ session_start();
 
 $connect = new Connect();
 $conn = $connect->connectar();
-
-echo '<script language="javascript">
-console.log('.$_SESSION["mensaje"].');
-</script>';
-
+if(isset($_SESSION["mensaje"])) {
+    echo '<script language="javascript">
+    console.log('.$_SESSION["mensaje"].');
+    </script>';
+}
 ?>
 
 <!DOCTYPE html>
