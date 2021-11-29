@@ -36,6 +36,12 @@ class Cita {
         
     }
 
+    /**
+     * Registrar pacientes se usa en:
+     * -registrar citas 
+     * -pruebas de registrar citas
+     * -controlador de registrar paciente
+     */
     function crearPaciente($cedula,$nombre,$apellidos, $telefono  ) {
 
       $sql = "INSERT INTO  Paciente(cedula, nombre, apellidos, telefono)

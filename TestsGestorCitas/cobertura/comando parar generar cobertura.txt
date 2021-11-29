@@ -1,2 +1,7 @@
 cd C:\xampp\htdocs\Sukaritas\vendor\bin
 phpunit --coverage-xml ..\..\TestsGestorCitas\cobertura
+
+
+ejecutar un archivo
+phpunit --filter RegistrarPacienteTest
+phpunit --filter nombre de clase de la prueba
