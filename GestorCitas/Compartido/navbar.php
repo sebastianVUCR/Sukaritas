@@ -23,8 +23,11 @@
     <li id="li-link-inicio"  class="nav-item active">
         <a id="link-inicio" class="a-citas nav-link" href="#">Softville</span></a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="a-citas nav-link" href="../Citas/consultar-citas.php">Citas</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="a-citas nav-link" href="../Paciente/InterfazRegistrarPaciente.php">Pacientes</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Reportes</a>
