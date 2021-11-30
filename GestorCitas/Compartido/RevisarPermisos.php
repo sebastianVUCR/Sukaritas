@@ -9,5 +9,8 @@ function manejarUsuarioNoLogeado(){
             header('Location: ../Compartido/AccesoDenegado.html');
         }
     }
+    else {
+        header('Location: ../Compartido/AccesoDenegado.html');
+    }
 }
 ?>
