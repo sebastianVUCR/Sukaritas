@@ -1,9 +1,5 @@
 <?php
     function desplegarMensaje() {
-        try {
-            session_start();
-        }
-        catch(Exception $e){}
         if(isset( $_SESSION["mensajePaciente"]) && isset( $_SESSION["mensajePacienteTipo"]) ) {
             if($_SESSION["mensajePacienteTipo"] == 'error') {
                 echo '<script language="javascript">

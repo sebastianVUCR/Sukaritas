@@ -41,11 +41,7 @@
   session_start();
 	if(isset( $_SESSION["logeo"])){
     if($_SESSION["logeo"]== 1){
-      $_SESSION["logeo"] = 0;
-      echo '<script language="javascript">
-      document.getElementById("mensaje-error").innerHTML="logeo exitoso, aqui debe redirigir a home";
-      document.getElementById("mensaje-error").style.visibility="visible"
-      </script>';
+      header('Location: ../Citas/consultar-citas.php');
     }
     if($_SESSION["logeo"]== 2){
       $_SESSION["logeo"] = 0;

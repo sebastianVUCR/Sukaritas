@@ -5,10 +5,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<title>Gestor de citas Softville</title>
 		<?php
-				include_once '../Compartido/navbar.php';
+			include_once '../Compartido/RevisarPermisos.php';
+			session_start();
+			manejarUsuarioNoLogeado();
+			include_once '../Compartido/navbar.php';
 		?>
 		<link rel="stylesheet" href="../Compartido/colores.css"/>
 		<link rel="stylesheet" href="../Citas/registrar-citas.css"/>
+		<link rel="stylesheet" href="EstiloRegistrarPaciente.css"/>
 	</head>
 	<body>
 		<header>
