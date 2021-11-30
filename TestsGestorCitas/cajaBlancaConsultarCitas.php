@@ -36,6 +36,10 @@ class cajaBlancaRegirarCitaTest extends  PHPUnit\Framework\TestCase
         $_POST["cedula"] = $cedula;*/
     }
    
+    /**
+     * Seccion de pruebas para el consultar citas por nombre de profesional
+     */
+
     /** @test */
     public function pacienteNoExistePrueba()
     {
