@@ -7,33 +7,32 @@ session_start();
 
 class cajaBlancaRegirarCitaTest extends  PHPUnit\Framework\TestCase
 {
-    protected $citas;
-    protected $profesional;
+    protected $cedula;
+    protected $idProfesional;
     protected $usuario;
     public function setUp(): void
     {
         $this->citas = new Cita();
         $this->profesional = new Profesional();
         $this->usuario = new Usuario();
+        /*Primer set de datos */
         $this->usuario->crearUsuario("12345658","profesional",5,"activo","password");
         $this->citas->crearPaciente("101110111","Juan","Perez Oso","88888888");
         $this->profesional->agregarProfesional($this->usuario->obtenerId(12345658),"Luke");
         $this->citas->crearCita("2032-11-25 14:14:00", $this->usuario->obtenerId(12345658),"101110111");
 
+        /*Segundo set de datos*/
+        $this->usuario->crearUsuario("141414141","profesional",5,"activo","password");
+        $this->citas->crearPaciente("101110000","María","Perez Oso","88888888");
+        $this->profesional->agregarProfesional($this->usuario->obtenerId(141414141),"Luke");
+        $this->citas->crearCita("2032-11-25 14:14:00", $this->usuario->obtenerId(141414141),"101110111");
     }
 
-    public function llenarPost($horaCita, $fechaCita, $idProfesional, $cedula){
+    //todo llenar fecha inicial y fecha inicial para pruebas de citas por rango de tiempo
+    public function llenarPost($cedulaParam, $idProfesionalparam, $fechaInicial, $FechaFinal){
 
-        $_POST = array('hora_cita' => $horaCita, 
-        'fecha_cita' => $fechaCita,
-        'idProfesional' => $idProfesional,
-        'cedula' => $cedula);
-
-        /*
-        $_POST["hora_cita"] = $horaCita;
-        $_POST["fecha_cita"] = $fechaCita;
-        $_POST["idProfesional"] = $idProfesional;
-        $_POST["cedula"] = $cedula;*/
+        $_POST = array('idProfesional' => $idProfesionalparam, 
+        'cedula' => $cedulaParam);
     }
    
     /**

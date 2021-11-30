@@ -26,12 +26,6 @@ class cajaBlancaRegirarCitaTest extends  PHPUnit\Framework\TestCase
         'fecha_cita' => $fechaCita,
         'idProfesional' => $idProfesional,
         'cedula' => $cedula);
-
-        /*
-        $_POST["hora_cita"] = $horaCita;
-        $_POST["fecha_cita"] = $fechaCita;
-        $_POST["idProfesional"] = $idProfesional;
-        $_POST["cedula"] = $cedula;*/
     }
    
     /** @test */
@@ -46,7 +40,6 @@ class cajaBlancaRegirarCitaTest extends  PHPUnit\Framework\TestCase
     /** @test */
     public function profesionalNoExistePrueba()
     {
-        //2021-11-25 13:14:0013:14
         $this->llenarPost("13:14","2030-11-25", $this->usuario->obtenerId(12345060),"101110111");
         controladorRegistrarCita();
         $this->assertTrue($_SESSION["mensaje"] === 3);
@@ -55,7 +48,6 @@ class cajaBlancaRegirarCitaTest extends  PHPUnit\Framework\TestCase
     /** @test */
     public function fechaNoFutura()
     {
-        //2021-11-25 13:14:0013:14
         $this->llenarPost("13:14","2000-11-25", $this->usuario->obtenerId(12345658),"101110111");
         controladorRegistrarCita();
         $this->assertTrue($_SESSION["mensaje"] === 4);      
@@ -70,7 +62,6 @@ class cajaBlancaRegirarCitaTest extends  PHPUnit\Framework\TestCase
     /** @test */
     public function hayTraslape()
     {
-        //2021-11-25 13:14:0013:14
         $this->llenarPost("14:14","2032-11-25",$this->usuario->obtenerId(12345658),"101110111");
         controladorRegistrarCita();
         $this->assertTrue($_SESSION["mensaje"] === 5);
@@ -83,12 +74,6 @@ class cajaBlancaRegirarCitaTest extends  PHPUnit\Framework\TestCase
         controladorRegistrarCita();
         $this->assertTrue($_SESSION["mensaje"] === 1);
     }
-    /** 
-     *$this->usuario->crearUsuario("12345658","profesional",5,"activo","password");
-      *  $this->citas->crearPaciente("101110111","Juan","Perez Oso","88888888");
-       * $this->profesional->agregarProfesional($this->usuario->obtenerId(12345658),"Luke");
-        *$this->citas->crearCita("2032-11-25 13:14:00", $this->usuario->obtenerId(12345658),"101110111");
-     */
 
     public function tearDown(): void
     {
