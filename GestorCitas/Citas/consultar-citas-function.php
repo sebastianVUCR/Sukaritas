@@ -33,10 +33,10 @@
       $fechaLimite=$_POST['fechaFinal'];
     }
 
-    if(isset($_POST['fechaInicio']) && isset($_POST['fechaFinal'])){
+    if(($fechaInicial!='') &&($fechaLimite !='')){
 
       if($_POST['fechaInicio']>$_POST['fechaFinal']){
-
+        
         $citas='fechaInvalida';
 
       }
