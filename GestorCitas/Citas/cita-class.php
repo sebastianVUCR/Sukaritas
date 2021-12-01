@@ -159,16 +159,30 @@ class Cita {
       Esta función retorna un array con las citas que coincidan con la cedula, si
       el campo cedula esta vacio retorna todas las citas.
     */ 
-    function buscaCitasCedula($cedula,$idProfesional) {
+    function buscaCitasCedula($cedula,$idProfesional, $fechaIncio, $fechaFinal) {
       if($cedula != ""){
         if($this->pacienteExiste($cedula)){
-          $sql = "SELECT * FROM Citas WHERE cedulaPaciente = '{$cedula}' and idProfesional ='{$idProfesional}';";
+          $sql = "SELECT * FROM Citas WHERE cedulaPaciente = '{$cedula}' and idProfesional ='{$idProfesional}'";
         }else{
           return false;
         }
       }else{
-        $sql = "SELECT * FROM Citas WHERE idProfesional ='{$idProfesional}' ;";
+        $sql = "SELECT * FROM Citas WHERE idProfesional ='{$idProfesional}' ";
       }
+
+      $fecha='';
+      if(($fechaInicio != "") and ($fechaFinal != "")){
+        if($fechaInicio <= $fechaFinal ){ //las fecha vienen ordenadas
+          $fecha=" fecha BETWEEN '{$fechaInicio}' AND '{$fechaFinal}'";
+          $sql = $sql.$fecha;
+        }else{
+          
+        }
+        
+
+      }
+      
+      $sql=$sql.';';
       $resultado = mysqli_query($this->conn, $sql);
       if (!$this->conn) {
         die("Connection failed: " . mysqli_connect_error());

@@ -26,6 +26,17 @@
             <select required id="idProfesional" name="idProfesional">
               
             </select>
+
+			<fieldset class="input-registrar-cita">
+            	<label>Fecha de inicio </label>
+            	<input type="date" id="fecha-inicio" name="fecha-inicio" required>
+            </fieldset>
+
+			<fieldset class="input-registrar-cita">
+            	<label>Fecha limite </label>
+            	<input type="date" id="fecha-final" name="fecha-final" required>
+            </fieldset>
+
           <button type="submit" id="buscar" >
             Filtrar <img class="icono" id="icono-buscar" src="icono-buscar.png"></img>
           </button>
