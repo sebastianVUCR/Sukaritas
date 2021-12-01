@@ -3,7 +3,7 @@ require_once (dirname(__FILE__)).'/../GestorCitas/Citas/cita-function.php';
 require_once (dirname(__FILE__)).'/../GestorCitas/Citas/profesional-class.php';
 require_once (dirname(__FILE__)).'/../GestorCitas/Login/usuario-class.php';
 session_start();
-class cajaBlancaRegirarCitaTest extends  PHPUnit\Framework\TestCase
+class cajaBlancaRegistrarCitaTest extends  PHPUnit\Framework\TestCase
 {
     protected $citas;
     protected $profesional;
