@@ -69,7 +69,7 @@ class cajaBlancaRegistrarPacienteTest extends  PHPUnit\Framework\TestCase
 
     public function tearDown(): void
     {
-        $this->citas->eliminarPaciente("101110111");
+        $this->citas->eliminarPaciente("401110111");
         $this->citas->eliminarPaciente("303330333");
     }
 }
