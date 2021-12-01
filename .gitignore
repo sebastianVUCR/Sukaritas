@@ -25,3 +25,4 @@ composer.lock
 /GestorCitas/Login/connect.php
 /app/Config/database.php
 /vendors/*
+GestorCitas/Login/connect.php
