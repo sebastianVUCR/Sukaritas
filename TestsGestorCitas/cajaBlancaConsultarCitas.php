@@ -26,6 +26,7 @@ class cajaBlancaRegirarCitaTest extends  PHPUnit\Framework\TestCase
         $this->citas->crearPaciente("101110000","María","Perez Oso","88888888");
         $this->profesional->agregarProfesional($this->usuario->obtenerId(141414141),"Luke");
         $this->citas->crearCita("2032-11-25 14:14:00", $this->usuario->obtenerId(141414141),"101110111");
+        $this->citas->crearCita("2031-11-25 14:14:00", $this->usuario->obtenerId(141414141),"101110111");
     }
 
     //todo llenar fecha inicial y fecha inicial para pruebas de citas por rango de tiempo
@@ -53,10 +54,17 @@ class cajaBlancaRegirarCitaTest extends  PHPUnit\Framework\TestCase
 
     public function tearDown(): void
     {
+        /* Se elimina el primer set de datos */
         $this->citas->eliminarCita("101110111", $this->usuario->obtenerId(12345658));
         $this->profesional->eliminarProfesional($this->usuario->obtenerId(12345658));
         $this->usuario->eliminarUsuario("12345658");
         $this->citas->eliminarPaciente("101110111");
+
+        /* Se elimina el segundo set de datos */
+        $this->citas->eliminarCita("101110000", $this->usuario->obtenerId(141414141));
+        $this->profesional->eliminarProfesional($this->usuario->obtenerId(141414141));
+        $this->usuario->eliminarUsuario("141414141");
+        $this->citas->eliminarPaciente("101110000");
     }
 }
 ?>
