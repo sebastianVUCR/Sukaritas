@@ -78,7 +78,7 @@ td {
 #contenedor-tabla {
   padding: 20px;
   width: 88%;
-  height: 60%;
+  height: 52%;
   position: absolute;
   border: solid;
   overflow-y: auto;
@@ -104,12 +104,15 @@ td {
   color: white;
   box-shadow: 1.23px 1.25px 2.5px grey;
   border: none;
+  
 }
 
 #agregar {
   height: 100%;
   padding: 8px;
   padding-bottom: 12px;
+  
+  
 }
 
 #mensaje-error {
@@ -122,3 +125,4 @@ td {
   display: inline-flex;
   color: red;
 }
+

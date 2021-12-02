@@ -15,7 +15,9 @@
 	</head>
 	<body>
 		<header>
-      <h1 id="titulo">Consultar citas</h1>	  
+      <h1 id="titulo" style='margin-bottom:3.5%;'>Consultar citas</h1>	
+	  
+	    
 		</header>
 		<main>
 			<form id="formulario-citas" name="formulario-citas" method="post" action="">
@@ -26,10 +28,22 @@
             <select required id="idProfesional" name="idProfesional">
               
             </select>
+
+			<br>
+            	<label>Fecha de inicio </label>
+            	<input type="date" id="fecha-inicio" name="fecha-inicio" >
+            
+
+			
+            	<label>Fecha limite </label>
+            	<input type="date" id="fecha-final" name="fecha-final" >
+            
+
           <button type="submit" id="buscar" >
             Filtrar <img class="icono" id="icono-buscar" src="icono-buscar.png"></img>
           </button>
-          <a id="agregar" href="registrar-citas.php">Agregar citas <img id="icono-agregar" src="icono-agregar.png" alt="icono-agregar"></a>
+		  <a id="agregar"  href="registrar-citas.php">Agregar citas <img id="icono-agregar" src="icono-agregar.png" alt="icono-agregar"></a>
+          
         </fieldset>
        </form>
        <label id="mensaje-error" class="error">

@@ -10,8 +10,10 @@ $(document).ready(function () {
     const postData = {
       cedula: $("#cedula").val(),
       idProfesional: $("#idProfesional").val(),
+      fechaInicio: $("#fecha-inicio").val(),
+      fechaFinal: $("#fecha-final").val(),
     };
-
+    console.log(postData);
     /*Dirección a la que se envia el post*/
     const url = "consultar-citas-function.php";
     /*Se efectua el post y se espera una promesa con la respuesta*/
@@ -74,7 +76,12 @@ function dibujaProfesionales(response) {
 function dibujaPantalla(response) {
   $("#error").html("");
   console.log(response);
-  if (response == "SinCita") {
+  if(response=="fechaInvalida"){
+    $("#error").html("Fecha inválida: Fecha inicial debe ser menor a Fecha final ");
+    let template = "";
+    $("#citas").html(template);
+
+  }else if (response == "SinCita") {
     $("#error").html("No hay citas registradas");
     let template = "";
     $("#citas").html(template);
