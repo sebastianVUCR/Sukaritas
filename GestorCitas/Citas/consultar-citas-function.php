@@ -12,6 +12,8 @@
     if(isset($_POST["idProfesional"])){
       $idProfesional = $_POST["idProfesional"];
     } else { // si el campo está vacío
+      //se omite esta parte porque es parte de la interfaz
+      // @codeCoverageIgnoreStart
       $profesionales = $profesional->obtenerProfesionales();
       $primeraVez = false;
       foreach ( $profesionales as $profesional ) {
@@ -20,6 +22,7 @@
           $primeraVez = true;
         }
       }
+      // @codeCoverageIgnoreEnd
     }
     
     $fechaInicial='';
