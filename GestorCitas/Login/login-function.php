@@ -7,6 +7,12 @@
   function llamarControladorLogin() {
     session_start();
     controladorLogin();
+    if($_SESSION["loggeo"] == 1){
+      header('Location: ../Citas/consultar-citas.php');
+    }
+    else{
+      header('Location: login.php');
+    }
   }
 
   function controladorLogin() {
@@ -20,15 +26,13 @@
     if($usuario->permisoIngresar($cedula,$clave)) {
       $_SESSION["logeo"] = 1;
       $usuario->resetIntentos($cedula);
-      header('Location: ../Citas/consultar-citas.php');
     }else{
       $usuario->reducirIntento($cedula);
       $_SESSION["logeo"] = 2;
-      header('Location: login.php');
+
     }
     if($usuario->obtenerIntentos($cedula)=='0') {
       $_SESSION["logeo"] = 3;
-      header('Location: login.php');
     }
   }
   llamarControladorLogin();

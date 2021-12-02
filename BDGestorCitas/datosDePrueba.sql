@@ -14,13 +14,14 @@ ALTER TABLE Citas AUTO_INCREMENT = 1;
 INSERT INTO  Usuario (id, cedula, rol, intentos, estado, clave)
 values (1, "123456789", "admin", 5, "activo", "$2y$10$J0ZTzje91yg57n7Ps8VsPOO.SA74GFD/ynPnod6L0W1M3vdyRoWMi");
 INSERT INTO  Usuario (id, cedula, rol, intentos, estado, clave)
-values (2, "987654321", "admin", 5, "activo", "$2y$10$J0ZTzje91yg57n7Ps8VsPOO.SA74GFD/ynPnod6L0W1M3vdyRoWMi");
+values (2, "987654321", "admin", 0, "bloqueado", "$2y$10$J0ZTzje91yg57n7Ps8VsPOO.SA74GFD/ynPnod6L0W1M3vdyRoWMi");
 INSERT INTO  Usuario (id, cedula, rol, intentos, estado, clave)
 values (3, "102030405", "admin", 5, "activo", "$2y$10$J0ZTzje91yg57n7Ps8VsPOO.SA74GFD/ynPnod6L0W1M3vdyRoWMi");
 INSERT INTO  Usuario (id, cedula, rol, intentos, estado, clave)
 values (4, "908070605", "admin", 5, "activo", "$2y$10$J0ZTzje91yg57n7Ps8VsPOO.SA74GFD/ynPnod6L0W1M3vdyRoWMi");
 INSERT INTO  Usuario (id, cedula, rol, intentos, estado, clave)
 values (5, "123454321", "admin", 5, "activo", "$2y$10$J0ZTzje91yg57n7Ps8VsPOO.SA74GFD/ynPnod6L0W1M3vdyRoWMi");
+
 
 
 INSERT INTO  Profesional(id, nombre)

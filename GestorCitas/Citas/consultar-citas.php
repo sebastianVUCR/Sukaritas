@@ -15,7 +15,6 @@
 	</head>
 	<body>
 		<header>
-		<a id="agregar"  href="registrar-citas.php">Agregar citas <img id="icono-agregar" src="icono-agregar.png" alt="icono-agregar"></a>
       <h1 id="titulo" style='margin-bottom:3.5%;'>Consultar citas</h1>	
 	  
 	    
@@ -30,7 +29,7 @@
               
             </select>
 
-			
+			<br>
             	<label>Fecha de inicio </label>
             	<input type="date" id="fecha-inicio" name="fecha-inicio" >
             
@@ -43,6 +42,7 @@
           <button type="submit" id="buscar" >
             Filtrar <img class="icono" id="icono-buscar" src="icono-buscar.png"></img>
           </button>
+		  <a id="agregar"  href="registrar-citas.php">Agregar citas <img id="icono-agregar" src="icono-agregar.png" alt="icono-agregar"></a>
           
         </fieldset>
        </form>
