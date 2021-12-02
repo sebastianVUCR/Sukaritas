@@ -36,6 +36,9 @@
         <a class="nav-link" href="#">Procedimientos</a>
       </li>
     </ul>
+    <span class="nav-item">
+      <a class="nav-link" href="../Login/Logout.php"> Cerrar Sesión</a>
+    </span>
     <!--
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

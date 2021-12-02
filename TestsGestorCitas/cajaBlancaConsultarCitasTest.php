@@ -49,8 +49,93 @@ class cajaBlancaConsultarCitasTest extends  PHPUnit\Framework\TestCase
     public function llenarPost($cedulaParam, $idProfesionalparam, $fechaInicial, $FechaFinal){
 
         $_POST = array('idProfesional' => $idProfesionalparam, 
-        'cedula' => $cedulaParam);
+        'cedula' => $cedulaParam,
+        'fechaInicio' => $fechaInicial,
+        'fechaFinal' => $FechaFinal
+        );
     }
+
+
+    /**
+    * Sección de prueba para el consultar citas por rango de fecha
+    */
+
+    /** @test */
+    public function consultarCitasPorRangoFechasTest()
+    {
+     
+        $cedulaPaciente = '';
+        $idProfesional = $this->usuario->obtenerId(1414141410);
+        $fechaInicial = '2020-11-25 14:14:00';
+        $FechaFinal = '2040-11-25 14:14:00';
+        $nombreProfesional = 'Ian';
+        $this->llenarPost($cedulaPaciente, $idProfesional, $fechaInicial, $FechaFinal);
+        $stringEsperado = $nombreProfesional;
+        $resultado = controladorConsultarCitas();
+        $this->assertTrue(substr_count($resultado, $nombreProfesional ) >= 2);
+        
+    }
+
+    /** @test */
+    public function rangoDeFechaInvalidoaTest()
+    {
+        $cedulaPaciente = '1515151515';
+        $idProfesional = $this->usuario->obtenerId(1414141410);
+        $fechaInicial = '2040-11-25 14:14:00';
+        $FechaFinal = '2020-11-25 14:14:00';
+        $nombreProfesional = 'Ian';
+        $this->llenarPost($cedulaPaciente, $idProfesional, $fechaInicial, $FechaFinal);
+        $stringEsperado = $nombreProfesional;
+        $resultado = controladorConsultarCitas();
+        $this->assertTrue(substr_count($resultado, $nombreProfesional ) == 0);
+        
+    }
+
+    /** @test */
+    public function diaMayorFechaInvalida()
+    {
+        $cedulaPaciente = '1515151515';
+        $idProfesional = $this->usuario->obtenerId(1414141410);
+        $fechaInicial = '2032-11-26 14:14:00';
+        $FechaFinal = '2032-11-25 14:14:00';
+        $nombreProfesional = 'Ian';
+        $this->llenarPost($cedulaPaciente, $idProfesional, $fechaInicial, $FechaFinal);
+        $stringEsperado = $nombreProfesional;
+        $resultado = controladorConsultarCitas();
+        $this->assertTrue(substr_count($resultado, $nombreProfesional ) == 0);
+        
+    }   
+
+    /** @test */
+    public function mesMayorFechaInvalidaTest()
+    {
+        $cedulaPaciente = '1515151515';
+        $idProfesional = $this->usuario->obtenerId(1414141410);
+        $fechaInicial = '2032-12-25 14:14:00';
+        $FechaFinal = '2032-11-25 14:14:00';
+        $nombreProfesional = 'Ian';
+        $this->llenarPost($cedulaPaciente, $idProfesional, $fechaInicial, $FechaFinal);
+        $stringEsperado = $nombreProfesional;
+        $resultado = controladorConsultarCitas();
+        $this->assertTrue(substr_count($resultado, $nombreProfesional ) == 0);
+        
+    }
+    
+    /** @test */
+    public function fechaIgualACitaTest()
+    {
+        $cedulaPaciente = '1515151515';
+        $idProfesional = $this->usuario->obtenerId(1414141410);
+        $fechaInicial = '2032-11-25 14:14:00';
+        $FechaFinal = '2032-11-25 14:14:00';
+        $nombreProfesional = 'Ian';
+        $this->llenarPost($cedulaPaciente, $idProfesional, $fechaInicial, $FechaFinal);
+        $stringEsperado = $nombreProfesional;
+        $resultado = controladorConsultarCitas();
+        $this->assertTrue(substr_count($resultado, $nombreProfesional ) == 1);
+        
+    }
+
 
     /**
      * Seccion de pruebas para el consultar citas por nombre de profesional
