@@ -8,10 +8,10 @@
     $paciente = new Paciente();
     $profesional = new Profesional();
     $profesionalNuevo = new Profesional();
-    /*Revisa que no se inyecte código*/
+    //obtiene el valor del post
     if(isset($_POST["idProfesional"])){
       $idProfesional = $_POST["idProfesional"];
-    } else {
+    } else { // si el campo está vacío
       $profesionales = $profesional->obtenerProfesionales();
       $primeraVez = false;
       foreach ( $profesionales as $profesional ) {
@@ -48,6 +48,7 @@
       $citas = json_encode($citas);
     }
     echo $citas;
+    return $citas;
   }
   controladorConsultarCitas();
 ?>

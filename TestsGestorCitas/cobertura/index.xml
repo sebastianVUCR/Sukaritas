@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
+  <build time="Thu Dec 2 0:18:55 CET 2021" phpunit="9.5.0" coverage="9.2.9">
+    <runtime name="PHP" version="8.0.10" url="https://secure.php.net/"/>
+    <driver name="xdebug" version="3.1.1"/>
+  </build>
+  <project source="C:\xampp\htdocs\Sukaritas\GestorCitas">
+    <tests>
+      <test name="RegistrarPacienteTest::telefonoCortoTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::telefonoCaracteresTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::telefonoLetrasTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::cedulaConCeros" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::cedulaLargaConCeros" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::apellidoInValidoTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::telefonoValidoTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::inicioMayusculaTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::cedulaLargaInvalidaTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::cedulaLargaValidaTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::cedulaValidaCortaTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::cedulaValidaLargaTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::nombreValidoTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::nombreInValidoTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::nombreCortoInValidoTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::apellidoValidoTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::inicioMayusculaSinCambiarTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::inicioMayusculaCasoRaroTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::otroNombreTest" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarPacienteTest::otroApellidoTest" size="unknown" result="0" status="PASSED"/>
+      <test name="cajaBlancaRegistrarCitaTest::fechaNoFutura" size="unknown" result="0" status="PASSED"/>
+      <test name="cajaBlancaRegistrarCitaTest::profesionalNoExistePrueba" size="unknown" result="0" status="PASSED"/>
+      <test name="cajaBlancaRegistrarCitaTest::pacienteNoExistePrueba" size="unknown" result="0" status="PASSED"/>
+      <test name="cajaBlancaRegistrarCitaTest::hayTraslape" size="unknown" result="0" status="PASSED"/>
+      <test name="cajaBlancaRegistrarCitaTest::citaCreadaExitosamente" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarCitaTest::nuevaCitaEnFechaYHoraReservada" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarCitaTest::nuevaCitaConIdProfesionalValido" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarCitaTest::nuevaCitaEnFechaYHoraLibre" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarCitaTest::nuevaCitaEnFechaYHoraEnElPasado" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarCitaTest::nuevaCitaEnFechaYHoraEnFechaProxima" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarCitaTest::nuevaCitaConCedulaPacienteNueva" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarCitaTest::nuevaCitaConIdProfesionaInvalido" size="unknown" result="0" status="PASSED"/>
+      <test name="RegistrarCitaTest::nuevaCitaConCedulaPacienteExistente" size="unknown" result="0" status="PASSED"/>
+      <test name="cajaBlancaConsultarCitasTest::consultarProfesionalVariasCitasTest" size="unknown" result="0" status="PASSED"/>
+      <test name="LoginTest::usuarioBloqueadoconExito" size="unknown" result="0" status="PASSED"/>
+      <test name="LoginTest::existeCedula" size="unknown" result="0" status="PASSED"/>
+      <test name="LoginTest::usuarioBloqueadoHaceLogin" size="unknown" result="0" status="PASSED"/>
+      <test name="LoginTest::loginCredencialesCorrectas" size="unknown" result="0" status="PASSED"/>
+      <test name="LoginTest::loginCredencialesInCorrectas" size="unknown" result="0" status="PASSED"/>
+      <test name="LoginTest::usuarioDesbloqueadoHaceLogin" size="unknown" result="0" status="PASSED"/>
+      <test name="RealizarConsultaTest::existeCedulaCliente" size="unknown" result="0" status="PASSED"/>
+      <test name="RealizarConsultaTest::buscarCitasConCedulaYProfesional" size="unknown" result="0" status="PASSED"/>
+      <test name="RealizarConsultaTest::buscarCitasSinCedulaYProfesional" size="unknown" result="0" status="PASSED"/>
+      <test name="RealizarConsultaTest::retornaTodosLosProfesionales" size="unknown" result="0" status="PASSED"/>
+      <test name="cajaBlancaRegistrarPacienteTest::cedulaEsInvalidaPrueba" size="unknown" result="0" status="PASSED"/>
+      <test name="cajaBlancaRegistrarPacienteTest::nombreEsInvalidoPrueba" size="unknown" result="0" status="PASSED"/>
+      <test name="cajaBlancaRegistrarPacienteTest::apellidoEsInvalidoPrueba" size="unknown" result="0" status="PASSED"/>
+      <test name="cajaBlancaRegistrarPacienteTest::telefonoEsInvalidoPrueba" size="unknown" result="0" status="PASSED"/>
+      <test name="cajaBlancaRegistrarPacienteTest::PacienteYaExistePrueba" size="unknown" result="0" status="PASSED"/>
+      <test name="cajaBlancaRegistrarPacienteTest::PacienteCreadoExitosamente" size="unknown" result="0" status="PASSED"/>
+    </tests>
+    <directory name="/">
+      <totals>
+        <lines total="1020" comments="137" code="883" executable="365" executed="255" percent="69.86"/>
+        <methods count="32" tested="14" percent="43.75"/>
+        <functions count="9" tested="5" percent="55.56"/>
+        <classes count="5" tested="1" percent="20.00"/>
+        <traits count="0" tested="0" percent="0"/>
+      </totals>
+      <directory name="Citas">
+        <totals>
+          <lines total="556" comments="71" code="485" executable="189" executed="144" percent="76.19"/>
+          <methods count="14" tested="5" percent="35.71"/>
+          <functions count="4" tested="2" percent="50.00"/>
+          <classes count="2" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="cita-class.php" href="Citas/cita-class.php.xml">
+          <totals>
+            <lines total="191" comments="31" code="160" executable="76" executed="69" percent="90.79"/>
+            <methods count="9" tested="3" percent="33.33"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="cita-function.php" href="Citas/cita-function.php.xml">
+          <totals>
+            <lines total="45" comments="9" code="36" executable="21" executed="21" percent="100.00"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="2" tested="2" percent="100.00"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="consultar-citas-function.php" href="Citas/consultar-citas-function.php.xml">
+          <totals>
+            <lines total="53" comments="2" code="51" executable="31" executed="23" percent="74.19"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="1" tested="0" percent="0.00"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="obtener-profesionales-function.php" href="Citas/obtener-profesionales-function.php.xml">
+          <totals>
+            <lines total="27" comments="1" code="26" executable="17" executed="0" percent="0.00"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="1" tested="0" percent="0.00"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="profesional-class.php" href="Citas/profesional-class.php.xml">
+          <totals>
+            <lines total="118" comments="24" code="94" executable="35" executed="31" percent="88.57"/>
+            <methods count="5" tested="2" percent="40.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="registrar-citas.php" href="Citas/registrar-citas.php.xml">
+          <totals>
+            <lines total="122" comments="4" code="118" executable="9" executed="0" percent="0.00"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Login">
+        <totals>
+          <lines total="322" comments="61" code="261" executable="110" executed="53" percent="48.18"/>
+          <methods count="13" tested="4" percent="30.77"/>
+          <functions count="2" tested="1" percent="50.00"/>
+          <classes count="2" tested="0" percent="0.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="connect.php" href="Login/connect.php.xml">
+          <totals>
+            <lines total="19" comments="0" code="19" executable="10" executed="9" percent="90.00"/>
+            <methods count="3" tested="2" percent="66.67"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="login-function.php" href="Login/login-function.php.xml">
+          <totals>
+            <lines total="34" comments="4" code="30" executable="19" executed="0" percent="0.00"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="2" tested="1" percent="50.00"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="usuario-class.php" href="Login/usuario-class.php.xml">
+          <totals>
+            <lines total="269" comments="57" code="212" executable="81" executed="44" percent="54.32"/>
+            <methods count="10" tested="2" percent="20.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Paciente">
+        <totals>
+          <lines total="142" comments="5" code="137" executable="66" executed="58" percent="87.88"/>
+          <methods count="5" tested="5" percent="100.00"/>
+          <functions count="3" tested="2" percent="66.67"/>
+          <classes count="1" tested="1" percent="100.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="RegistrarPacienteAuxiliar.php" href="Paciente/RegistrarPacienteAuxiliar.php.xml">
+          <totals>
+            <lines total="21" comments="0" code="21" executable="8" executed="0" percent="0.00"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="1" tested="0" percent="0.00"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="ValidadorDatosPaciente.php" href="Paciente/ValidadorDatosPaciente.php.xml">
+          <totals>
+            <lines total="65" comments="2" code="63" executable="27" executed="27" percent="100.00"/>
+            <methods count="5" tested="5" percent="100.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="1" percent="100.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="controlador-registrar-paciente.php" href="Paciente/controlador-registrar-paciente.php.xml">
+          <totals>
+            <lines total="56" comments="3" code="53" executable="31" executed="31" percent="100.00"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="2" tested="2" percent="100.00"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+    </directory>
+  </project>
+</phpunit>

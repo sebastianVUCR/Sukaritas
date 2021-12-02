@@ -114,6 +114,16 @@ class RegistrarPacienteTest extends  PHPUnit\Framework\TestCase
     public function inicioMayusculaCasoRaroTest() {
         $this->assertEquals($this->validador->inicioMayuscula('6'), '6');
     }
+
+    /** @test */
+    public function otroNombreTest() {
+        $this->assertTrue($this->validador->nombreEsValido('Sebastián'));
+    }
+
+    /** @test */
+    public function otroApellidoTest() {
+        $this->assertTrue($this->validador->nombreEsValido('Acuña'));
+    }
     
     public function tearDown(): void
     {

@@ -24,17 +24,17 @@
             
                 <fieldset class="input-registrar-cita">
                     <label>Cédula</label>
-                    <input type="text" id="cedula" name="cedula" placeholder="116540419" />
+                    <input type="text" id="cedula" name="cedula" placeholder="116540419" required/>
                 </fieldset>
 
 				<fieldset class="input-registrar-cita">
                     <label>Nombre</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre del paciente" />
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre del paciente" required />
                 </fieldset>
 
 				<fieldset class="input-registrar-cita">
                     <label>Apellido</label>
-                    <input type="text" id="apellido" name="apellido" placeholder="Ingrese el apellido del paciente" />
+                    <input type="text" id="apellido" name="apellido" placeholder="Ingrese el apellido del paciente" required/>
                 </fieldset>
 
 				<fieldset class="input-registrar-cita">
