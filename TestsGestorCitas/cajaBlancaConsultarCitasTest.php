@@ -185,6 +185,63 @@ class cajaBlancaConsultarCitasTest extends  PHPUnit\Framework\TestCase
         $this->assertTrue(substr_count($resultado, $nombreProfesional ) == 0);
     }
 
+
+    /** @test */
+    public function consultarProfesionalUnacitaSinCedulaPacienteTest()
+    {
+        $cedulaPaciente = '';
+        $idProfesional = $this->usuario->obtenerId(123456580);
+        $fechaInicial = '';
+        $FechaFinal = '';
+        $nombreProfesional = 'Luke';
+        $this->llenarPost($cedulaPaciente, $idProfesional, $fechaInicial, $FechaFinal);
+        $stringEsperado = $nombreProfesional;
+        $resultado = controladorConsultarCitas();
+        $this->assertTrue(substr_count($resultado, $nombreProfesional ) == 1);
+    }
+
+    /** @test */
+    public function consultarProfesionalUnacitaConCedulaPacienteTest()
+    {
+        $cedulaPaciente = '1011101110';
+        $idProfesional = $this->usuario->obtenerId(123456580);
+        $fechaInicial = '';
+        $FechaFinal = '';
+        $nombreProfesional = 'Luke';
+        $this->llenarPost($cedulaPaciente, $idProfesional, $fechaInicial, $FechaFinal);
+        $stringEsperado = $nombreProfesional;
+        $resultado = controladorConsultarCitas();
+        $this->assertTrue(substr_count($resultado, $nombreProfesional ) == 1);
+    }
+
+    /** @test */
+    public function consultarProfesionalVariascitasSinCedulaPacienteTest()
+    {
+        $cedulaPaciente = '';
+        $idProfesional = $this->usuario->obtenerId(1414141410);
+        $fechaInicial = '';
+        $FechaFinal = '';
+        $nombreProfesional = 'Ian';
+        $this->llenarPost($cedulaPaciente, $idProfesional, $fechaInicial, $FechaFinal);
+        $stringEsperado = $nombreProfesional;
+        $resultado = controladorConsultarCitas();
+        $this->assertTrue(substr_count($resultado, $nombreProfesional ) >= 2);
+    }
+
+    /** @test */
+    public function consultarProfesionalVariascitasConCedulaPacienteTest()
+    {
+        $cedulaPaciente = '1515151515';
+        $idProfesional = $this->usuario->obtenerId(1414141410);
+        $fechaInicial = '';
+        $FechaFinal = '';
+        $nombreProfesional = 'Ian';
+        $this->llenarPost($cedulaPaciente, $idProfesional, $fechaInicial, $FechaFinal);
+        $stringEsperado = $nombreProfesional;
+        $resultado = controladorConsultarCitas();
+        $this->assertTrue(substr_count($resultado, $nombreProfesional ) >= 2);
+    }
+
     public function tearDown(): void
     {
         /* Se elimina el primer set de datos */
