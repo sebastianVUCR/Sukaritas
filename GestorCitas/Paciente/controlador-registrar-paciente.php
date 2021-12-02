@@ -19,10 +19,7 @@
       $cedula = filter_var($_POST["cedula"], FILTER_SANITIZE_NUMBER_INT);
       $nombre = filter_var($_POST["nombre"], FILTER_SANITIZE_STRING);
       $apellido = filter_var($_POST["apellido"], FILTER_SANITIZE_STRING);
-      $telefono = filter_var($_POST["telefono"], FILTER_SANITIZE_NUMBER_INT);
-      
-      $nombre = $_POST["nombre"];
-      $apellido = $_POST["apellido"];      
+      $telefono = filter_var($_POST["telefono"], FILTER_SANITIZE_NUMBER_INT);    
 
       if(!$validador->cedulaEsValida($cedula)) {
         $_SESSION['mensajePaciente'] = 'La cédula ingresada no es válida.';

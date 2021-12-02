@@ -39,7 +39,7 @@
 
 				<fieldset class="input-registrar-cita">
                     <label>Teléfono</label>
-                    <input type="number" id="telefono" name="telefono" placeholder="Ingrese el teléfono del paciente"/>
+                    <input type="number" id="telefono" name="telefono" placeholder="Ingrese el teléfono del paciente" required/>
                 </fieldset>
 
                 <div id="button-box">
