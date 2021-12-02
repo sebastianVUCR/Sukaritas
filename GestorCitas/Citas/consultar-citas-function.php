@@ -48,6 +48,7 @@
       $citas = json_encode($citas);
     }
     echo $citas;
+    return $citas;
   }
   controladorConsultarCitas();
 ?>
