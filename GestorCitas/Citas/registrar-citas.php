@@ -33,7 +33,7 @@ if(isset($_SESSION["mensaje"])) {
             <h1 id="titulo">Registrar citas</h1>	
 		</header>
 		<main>
-            <label id="mensaje" ></label>  
+            <h2 id="mensaje" > </h2>  
 			<form id="formulario-cita" name="formulario-cita" method="post" action="cita-function.php">
             
                 <fieldset class="input-registrar-cita">
