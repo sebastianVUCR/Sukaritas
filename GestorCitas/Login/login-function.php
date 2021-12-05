@@ -6,8 +6,17 @@
    */
   function llamarControladorLogin() {
     session_start();
-    controladorLogin();
-    if($_SESSION["loggeo"] == 1){
+
+    if (!empty($_POST['anticsrf'])) {
+      if (hash_equals($_SESSION['anticsrf'], $_POST['anticsrf'])) {
+        controladorLogin();
+      } else {
+        //Token anti CRSFT fue modificado por un intermediario, se rechaza el login
+        $_SESSION["logeo"] = 4;
+      }
+    }
+
+    if($_SESSION["logeo"] == 1){
       header('Location: ../Citas/consultar-citas.php');
     }
     else{

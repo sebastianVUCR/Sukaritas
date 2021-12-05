@@ -20,6 +20,10 @@ if(isset($_SESSION["mensaje"])) {
 		<title>Gestor de citas Softville</title>
 		<?php
 				include_once '../Compartido/navbar.php';
+                if (empty($_SESSION['token'])) {
+                    $_SESSION['token'] = bin2hex(random_bytes(32));
+                }
+                $token = $_SESSION['token'];
 			?>
 			<link rel="stylesheet" href="../Compartido/colores.css"/>
 			<link rel="stylesheet" href="registrar-citas.css"/>
@@ -62,6 +66,8 @@ if(isset($_SESSION["mensaje"])) {
                     <label>Hora de la cita </label>
                     <input type="time" id="hora_cita" name="hora_cita" min="08:00" max="18:00" required>
                 </fieldset>
+
+                <input type="hidden" name="anti-csrf-token" value="<?php echo $token; ?>" />
 
                 <div id="button-box">
                     <button type="submit" id="registrar">Registrar</button>

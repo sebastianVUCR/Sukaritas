@@ -7,6 +7,13 @@
 		<link rel="stylesheet" href="../Compartido/colores.css"/>
 		<link rel="stylesheet" href="../Compartido/boton-generico.css"/>
 		<link rel="stylesheet" href="Login.css"/>
+    <?php
+        session_start();
+        if (empty($_SESSION['anticsrf'])) {
+          $_SESSION['anticsrf'] = bin2hex(random_bytes(32));
+        }
+        $anticsrf = $_SESSION['anticsrf'];
+    ?>
 		
 	</head>
 	<body>
@@ -30,6 +37,7 @@
 				<div id="contenedor-boton">
           <button type="submit" id="ingresar">Ingresar</button>
 				</div>
+        <input type="hidden" name="anticsrf" value="<?php echo $anticsrf; ?>" />
         <button type="submit" id="submit-escondido" class="hidden-submit" hidden>validar entradas</button>
       </form>
 		</main>
@@ -38,7 +46,7 @@
 
 <?php
   //@codeCoverageIgnoreStart
-  session_start();
+  //session_start();
 	if(isset( $_SESSION["logeo"])){
     if($_SESSION["logeo"]== 1){
       header('Location: ../Citas/consultar-citas.php');
@@ -52,6 +60,13 @@
       $_SESSION["logeo"] = 0;
       echo '<script language="javascript">
       document.getElementById("mensaje-error").innerHTML="Ha sobrepasado el limite de intentos, su cuenta está bloqueada";
+      document.getElementById("mensaje-error").style.visibility="visible"
+      </script>';
+    }
+    if($_SESSION["logeo"]== 4){
+      $_SESSION["logeo"] = 0;
+      echo '<script language="javascript">
+      document.getElementById("mensaje-error").innerHTML="Token anti CSRF inválido";
       document.getElementById("mensaje-error").style.visibility="visible"
       </script>';
     }

@@ -9,6 +9,10 @@
 			session_start();
 			manejarUsuarioNoLogeado();
 			include_once '../Compartido/navbar.php';
+			if (empty($_SESSION['token'])) {
+				$_SESSION['token'] = bin2hex(random_bytes(32));
+			}
+			$token = $_SESSION['token'];
 		?>
 		<link rel="stylesheet" href="../Compartido/colores.css"/>
 		<link rel="stylesheet" href="../Citas/registrar-citas.css"/>
@@ -41,6 +45,9 @@
                     <label>Teléfono</label>
                     <input type="number" id="telefono" name="telefono" placeholder="Ingrese el teléfono del paciente" required/>
                 </fieldset>
+
+				<input type="hidden" name="anti-csrf-token" value="<?php echo $token; ?>" />
+
 
                 <div id="button-box">
                     <button type="submit" id="registrar">Registrar</button>

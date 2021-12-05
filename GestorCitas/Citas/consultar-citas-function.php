@@ -8,6 +8,7 @@
     $paciente = new Paciente();
     $profesional = new Profesional();
     $profesionalNuevo = new Profesional();
+    
     //obtiene el valor del post
     if(isset($_POST["idProfesional"])){
       $idProfesional = $_POST["idProfesional"];
@@ -28,6 +29,7 @@
     $fechaInicial='';
     $fechaLimite='';
     $citas='';
+    $antiCSRFToken = $_POST['anti-csrf-token'];
     if(isset($_POST['fechaInicio'])){
       $fechaInicial=$_POST['fechaInicio'];
     }
