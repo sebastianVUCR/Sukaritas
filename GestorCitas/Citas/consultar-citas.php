@@ -45,7 +45,7 @@
 					<button type="submit" id="buscar" >
 						Filtrar <img class="icono" id="icono-buscar" src="icono-buscar.png" alt="icono buscar"></img>
 					</button>
-					<a id="agregar"  href="registrar-citas.php">Agregar citas <img id="icono-agregar" src="icono-agregar.png" alt="icono-agregar"></a>
+					<a id="agregar"  href="registrar-citas.php">Agregar citas <img id="icono-agregar" src="icono-agregar.png" alt="icono agregar"></a>
           
         		</fieldset>
        		</form>
